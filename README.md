@@ -1,5 +1,5 @@
 # ERPSystem
-## liste over deltagere:
+## list of participants:
 - Mikkel J
 - BB
 -

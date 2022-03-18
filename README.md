@@ -1,3 +1,5 @@
 # ERPSystem
-bb takes over
-hello world from MJ
+liste over deltagere:
+1: Mikkel J
+2:
+3:

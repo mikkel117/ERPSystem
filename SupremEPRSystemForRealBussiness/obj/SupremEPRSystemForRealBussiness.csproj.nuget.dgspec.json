@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\minec\\source\\repos\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj": {}
+    "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj": {}
   },
   "projects": {
-    "C:\\Users\\minec\\source\\repos\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj": {
+    "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\minec\\source\\repos\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj",
+        "projectUniqueName": "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj",
         "projectName": "SupremEPRSystemForRealBussiness",
-        "projectPath": "C:\\Users\\minec\\source\\repos\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj",
-        "packagesPath": "C:\\Users\\minec\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\minec\\source\\repos\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness\\obj\\",
+        "projectPath": "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj",
+        "packagesPath": "C:\\Users\\rumbo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\minec\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\rumbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

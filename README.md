@@ -1,10 +1,11 @@
 # ERPSystem
-liste over deltagere:
+## liste over deltagere:
 - Mikkel J
 - BB
 -
 
 
-Art of code
+## Art of code
 english names of everything
+
 standart vs code form 

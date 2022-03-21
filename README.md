@@ -2,7 +2,7 @@
 ## list of participants:
 - Mikkel J
 - BB
--
+- Gud
 
 
 ## Art of code

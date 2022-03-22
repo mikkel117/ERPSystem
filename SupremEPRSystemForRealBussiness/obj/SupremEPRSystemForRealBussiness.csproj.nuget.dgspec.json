@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj": {}
+    "C:\\Users\\lars29i0\\Desktop\\Skole\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj": {
+    "C:\\Users\\lars29i0\\Desktop\\Skole\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj",
+        "projectUniqueName": "C:\\Users\\lars29i0\\Desktop\\Skole\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj",
         "projectName": "SupremEPRSystemForRealBussiness",
-        "projectPath": "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj",
-        "packagesPath": "C:\\Users\\rumbo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rumbo\\Source\\Repos\\ERPSystem\\SupremEPRSystemForRealBussiness\\obj\\",
+        "projectPath": "C:\\Users\\lars29i0\\Desktop\\Skole\\ERPSystem\\SupremEPRSystemForRealBussiness\\SupremEPRSystemForRealBussiness.csproj",
+        "packagesPath": "C:\\Users\\lars29i0\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lars29i0\\Desktop\\Skole\\ERPSystem\\SupremEPRSystemForRealBussiness\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rumbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lars29i0\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

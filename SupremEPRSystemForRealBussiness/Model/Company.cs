@@ -8,10 +8,17 @@ namespace SupremEPRSystemForRealBussiness.Model
 {
     internal class Company
     {
-        public string CompanyName { get; set; }
-        public string Street { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public string Currency { get; set; }
+        private string companyName { get; set; }
+        private string street { get; set; }
+        private string country { get; set; }
+        private int zipCode { get; set; }
+
+        private string city
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

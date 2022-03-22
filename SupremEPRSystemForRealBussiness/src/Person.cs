@@ -58,7 +58,7 @@ namespace SupremEPRSystemForRealBussiness
             }
         }
 
-        private array location
+        private Array location
         {
             get => default;
             set

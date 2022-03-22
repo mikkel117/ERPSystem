@@ -23,7 +23,7 @@ namespace SupremEPRSystemForRealBussiness
             }
         }
 
-        private string streetname
+        private string streetName
         {
             get => default;
             set

@@ -202,7 +202,7 @@ namespace SupremEPRSystemForRealBussiness
             }
         }
 
-        private int id
+        private int employeeID
         {
             get => default;
             set

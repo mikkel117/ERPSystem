@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SupremEPRSystemForRealBussiness
+namespace SupremEPRSystemForRealBussiness.src
 {
     public class Customer : Person
     {

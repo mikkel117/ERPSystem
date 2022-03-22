@@ -4,7 +4,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 {
     internal class CustomerMenu : Screen
     {
-        public override string Title { get; set; } = " Storage Menu ";
+        public override string Title { get; set; } = " Customer Menu ";
         protected override void Draw()
         {
             Clear(this);

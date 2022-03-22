@@ -1,6 +1,6 @@
 ﻿using TECHCOOL.UI;
 
-namespace SupremEPRSystemForRealBussiness.src;
+namespace SupremEPRSystemForRealBussiness;
 class SupremEPRSystem
 {
     static void Main (string[] args)

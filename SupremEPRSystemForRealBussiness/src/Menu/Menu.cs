@@ -1,6 +1,6 @@
 ﻿using TECHCOOL.UI;
 
-namespace SupremEPRSystemForRealBussiness.src
+namespace SupremEPRSystemForRealBussiness
 {
     internal class Menu : Screen
     {

@@ -1,4 +1,4 @@
-﻿namespace SupremEPRSystemForRealBussiness.src
+﻿namespace SupremEPRSystemForRealBussiness
 {
     internal class MenuData
     {

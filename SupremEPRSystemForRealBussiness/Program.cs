@@ -1,6 +1,6 @@
-﻿namespace SupremEPRSystemForRealBussiness.src;
-using TECHCOOL.UI;
+﻿using TECHCOOL.UI;
 
+namespace SupremEPRSystemForRealBussiness.src;
 class SupremEPRSystem
 {
     static void Main (string[] args)

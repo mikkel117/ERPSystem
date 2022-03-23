@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SupremEPRSystemForRealBussiness.src
 {
-    public class Customer : Person
+    public class SalesOrder
     {
-        private string shippingAddress1
+        private double totalPrice
         {
             get => default;
             set
@@ -15,7 +16,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string shippingAddress2
+        private string tax
         {
             get => default;
             set
@@ -23,7 +24,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string country
+        private int totalItems
         {
             get => default;
             set
@@ -31,7 +32,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private int zipCode
+        private string paymentMethod
         {
             get => default;
             set
@@ -39,7 +40,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string city
+        private string deliveryOption
         {
             get => default;
             set
@@ -47,7 +48,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string region
+        private string timeStamp
         {
             get => default;
             set
@@ -55,18 +56,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string lastOrderDate
-        {
-            get => default;
-            set
-            {
-            }
-        }
-    }
-
-    public class Employee : Person
-    {
-        private string workPhone
+        private string orderStatus
         {
             get => default;
             set
@@ -74,7 +64,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private double salery
+        public List<OrderLines> OrderLines
         {
             get => default;
             set
@@ -82,7 +72,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private int employeeID
+        public Customer Customer
         {
             get => default;
             set
@@ -90,15 +80,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string position
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private string department
+        private int orderID
         {
             get => default;
             set

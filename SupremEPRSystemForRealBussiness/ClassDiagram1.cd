@@ -35,13 +35,6 @@
       <FileName>src\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SupremEPRSystemForRealBussiness.src.Employee">
-    <Position X="12.5" Y="4.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAAAAAAIAAQAAAAAgAAQAAAAAAAAAA=</HashCode>
-      <FileName>src\Customer.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.OrderLines">
     <Position X="4" Y="4.5" Width="2" />
     <TypeIdentifier>

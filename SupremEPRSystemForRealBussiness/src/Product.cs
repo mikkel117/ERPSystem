@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SupremEPRSystemForRealBussiness.src
 {
-    public class Person
+    public class Product
     {
-        private string firstName
+        private string productName
         {
             get => default;
             set
@@ -15,7 +16,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string lastName
+        private Array location
         {
             get => default;
             set
@@ -23,7 +24,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        public ContactInfo ContactInfo
+        private int productID
         {
             get => default;
             set
@@ -31,7 +32,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        public Address Address
+        private double salesPrice
         {
             get => default;
             set
@@ -39,7 +40,31 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string gender
+        private double buyPrice
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private string supplier
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private int stock
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private string description
         {
             get => default;
             set

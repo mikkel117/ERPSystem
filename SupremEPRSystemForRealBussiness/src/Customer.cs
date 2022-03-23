@@ -7,6 +7,7 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class Customer : Person
     {
+
         private string shippingAddress1
         {
             get => default;
@@ -176,49 +177,6 @@ namespace SupremEPRSystemForRealBussiness.src
         }
 
         private double unitPrice
-        {
-            get => default;
-            set
-            {
-            }
-        }
-    }
-
-    public class Employee : Person
-    {
-        private string workPhone
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private double salery
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private int employeeID
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private string position
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private string department
         {
             get => default;
             set

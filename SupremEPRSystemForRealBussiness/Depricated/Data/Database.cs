@@ -13,7 +13,10 @@ namespace SupremEPRSystemForRealBussiness.Data
         static Database()
         {
             Instance = new Database();
+           
         }
+
+
     }
 
 }

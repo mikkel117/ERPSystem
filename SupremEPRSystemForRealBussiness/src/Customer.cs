@@ -7,6 +7,7 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class Customer : Person
     {
+
         private string shippingAddress1
         {
             get => default;
@@ -64,9 +65,10 @@ namespace SupremEPRSystemForRealBussiness.src
         }
     }
 
-    public class Employee : Person
+    public class SalesOrder
     {
-        private string workPhone
+
+        private double totalPrice
         {
             get => default;
             set
@@ -74,7 +76,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private double salery
+        private string tax
         {
             get => default;
             set
@@ -82,7 +84,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private int employeeID
+        private int totalItems
         {
             get => default;
             set
@@ -90,7 +92,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string position
+        private string paymentMethod
         {
             get => default;
             set
@@ -98,7 +100,83 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string department
+        private string deliveryOption
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private string timeStamp
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private string orderStatus
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public List<OrderLines> OrderLines
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Customer Customer
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private int orderID
+        {
+            get => default;
+            set
+            {
+            }
+        }
+    }
+
+    public class OrderLines
+    {
+
+        private int quantity
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private Product Product
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private int ItemID
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private double unitPrice
         {
             get => default;
             set

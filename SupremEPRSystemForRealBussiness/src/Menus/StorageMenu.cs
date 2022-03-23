@@ -13,9 +13,6 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(new MenuData("Second Storage Task"));
             listPage.Add(new MenuData("Third Storage Task"));
             listPage.AddColumn("Todo", "Title");
-
-            listPage.Draw();
-
             MenuData selected = listPage.Select();
         }
     }

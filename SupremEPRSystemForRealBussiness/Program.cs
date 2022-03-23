@@ -5,6 +5,7 @@ class SupremEPRSystem
 {
     static void Main (string[] args)
     {
-        Screen.Display( new src.Menus.MainMenu() );
+        Screen.Display( new src.Menus.MainMenu());
+
     }
 }

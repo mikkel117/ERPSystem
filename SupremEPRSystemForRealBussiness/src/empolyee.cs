@@ -10,45 +10,19 @@ namespace SupremEPRSystemForRealBussiness.src
     {
         public class Employee : Person
         {
-            private string workPhone
+            public Employee(string firstName, string lastName, ContactInfo contactInfo, Address address, string gender) : base(firstName, lastName, contactInfo, address, gender)
             {
-                get => default;
-                set
-                {
-                }
             }
 
-            private double salery
-            {
-                get => default;
-                set
-                {
-                }
-            }
+            private string workPhone { get; set; }
 
-            private int employeeID
-            {
-                get => default;
-                set
-                {
-                }
-            }
+            private double salery { get; set; }
 
-            private string position
-            {
-                get => default;
-                set
-                {
-                }
-            }
+            private int employeeID { get; set; }
 
-            private string department
-            {
-                get => default;
-                set
-                {
-                }
-            }
+            private string position { get; set; }
+
+            private string department { get; set; }
         }
     }
 }

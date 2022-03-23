@@ -7,44 +7,23 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class Person
     {
-        private string firstName
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string firstName { get; set; }
 
-        private string lastName
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string lastName { get; set; }
 
-        public ContactInfo ContactInfo
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public ContactInfo ContactInfo { get; set; }
 
-        public Address Address
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Address Address { get; set; }
 
-        private string gender
+        private string gender { get; set; }
+
+        public Person(string firstName, string lastName, ContactInfo contactInfo, Address address, string gender)
         {
-            get => default;
-            set
-            {
-            }
+            this.firstName = firstName;
+            this.lastName = lastName;
+            ContactInfo = contactInfo;
+            Address = address;
+            this.gender = gender;
         }
     }
 }

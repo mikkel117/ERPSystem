@@ -10,11 +10,15 @@ namespace SupremEPRSystemForRealBussiness.Data
     partial class Database
     {
         public static Database Instance { get; private set; }
-        public List<src.Customer> Customers { get; set; }
+        /*dummyData*/
+        public List<Customer> Customers { get; set; }
+        public List<Company> companys { get; set; }
+        /*end of dummyData*/
         static Database()
         {
             Instance = new Database();
-            Instance.Customers.Add(new Customer("Bob", "Larsen", new ContactInfo("+4512357815", "Bobsmail@homemail.com"), new Address("techystreet 6","techtown","nerdLand",5502,"nerdzone"),"male"));
+            /*makes a Instance of companys list with a Instance of the Company class*/
+            Instance.companys = new List<Company>() { new Company("Test", "idkway", 10, 5, "aalborg", "Russia", "DDK") };
         }
 
 

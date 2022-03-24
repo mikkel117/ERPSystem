@@ -17,14 +17,14 @@
   <Class Name="SupremEPRSystemForRealBussiness.src.Address">
     <Position X="8.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAICAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAiIAAAAAAAAAAIAAAABAAAAAAAAAAA=</HashCode>
       <FileName>src\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.Customer">
     <Position X="10" Y="4.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAgAAAAAAIAAAAAAAAAAIAAAABAAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>src\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,9 +59,9 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="SupremEPRSystemForRealBussiness.ContactInfo">
-    <Position X="8.75" Y="2.75" Width="1.5" />
+    <Position X="3.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>src\ContactInfo.cs</FileName>
     </TypeIdentifier>
   </Class>

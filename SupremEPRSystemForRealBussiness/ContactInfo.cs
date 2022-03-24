@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace SupremEPRSystemForRealBussiness.src
+namespace SupremEPRSystemForRealBussiness
 {
-    public class Address
+    public class ContactInfo
     {
-        private string city
+        private string phone1
         {
             get => default;
             set
@@ -15,7 +16,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private int houseNum
+        private string email
         {
             get => default;
             set
@@ -23,15 +24,7 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
 
-        private string streetName
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private string floor
+        private string phone2
         {
             get => default;
             set
@@ -39,7 +32,4 @@ namespace SupremEPRSystemForRealBussiness.src
             }
         }
     }
-
-
-
 }

@@ -1,55 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SupremEPRSystemForRealBussiness.Model.Company">
-    <Position X="6" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAAAAAAAAACAAAAAAAAgACAAAAAAAAAEA=</HashCode>
-      <FileName>Depricated\Model\Company.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.Person">
-    <Position X="11.5" Y="2.25" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAACAAAAAAAIAAAAAAAACAAAAAAAAAAg=</HashCode>
       <FileName>src\Person.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Address" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.Address">
-    <Position X="8.75" Y="1" Width="1.5" />
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAiIAAAAAAAAAAIAAAABAAAAAAAAAAA=</HashCode>
       <FileName>src\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="SupremEPRSystemForRealBussiness.src.Employee">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <InheritanceLine Type="SupremEPRSystemForRealBussiness.src.Person" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="4.5" Y="1.58" />
+        <Point X="4" Y="1.58" />
+        <Point X="4" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAAAAAAAAgAAAAAAAAEABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.Customer">
-    <Position X="10" Y="4.5" Width="2" />
+    <Position X="5.75" Y="3" Width="1.5" />
+    <InheritanceLine Type="SupremEPRSystemForRealBussiness.src.Person" FixedFromPoint="true">
+      <Path>
+        <Point X="6" Y="1.637" />
+        <Point X="6.625" Y="1.637" />
+        <Point X="6.625" Y="3" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>src\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SupremEPRSystemForRealBussiness.src.OrderLines">
-    <Position X="4" Y="4.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAAAAACAAAAAACAAAAA=</HashCode>
-      <FileName>src\OrderLines.cs</FileName>
-      <NewMemberFileName>src\Customer.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SupremEPRSystemForRealBussiness.src.Product">
-    <Position X="1.5" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAFAAAAAAAAAAIACAAAACAAAAAIAAAAgAAAAAgAA=</HashCode>
-      <FileName>src\Product.cs</FileName>
-      <NewMemberFileName>src\Person.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.SalesOrder">
-    <Position X="7" Y="4.5" Width="2" />
+    <Position X="8.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIEAACAAEAAAAAAAAgAABABAAAAAQAAAEAAAAAAAAQA=</HashCode>
       <FileName>src\SalesOrder.cs</FileName>
-      <NewMemberFileName>src\Customer.cs</NewMemberFileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Customer" />
@@ -58,11 +64,28 @@
       <Property Name="OrderLines" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="SupremEPRSystemForRealBussiness.ContactInfo">
-    <Position X="3.75" Y="1.5" Width="1.5" />
+  <Class Name="SupremEPRSystemForRealBussiness.src.OrderLines">
+    <Position X="8.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
-      <FileName>src\ContactInfo.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAAAAACAAAAAACAAAAA=</HashCode>
+      <FileName>src\OrderLines.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Product" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SupremEPRSystemForRealBussiness.src.Product">
+    <Position X="4.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAFAAAAAAAAAAIACAAAACAAAAAIAAAAgAAAAAgAA=</HashCode>
+      <FileName>src\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SupremEPRSystemForRealBussiness.src.Company">
+    <Position X="1.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Company.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

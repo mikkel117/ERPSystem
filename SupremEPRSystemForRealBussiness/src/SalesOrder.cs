@@ -8,84 +8,24 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class SalesOrder
     {
-        private double totalPrice
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private double totalPrice { get; set; }
 
-        private string tax
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string tax { get; set; }
 
-        private int totalItems
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private int totalItems { get; set; }
 
-        private string paymentMethod
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string paymentMethod { get; set; }
 
-        private string deliveryOption
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string deliveryOption { get; set; }
 
-        private string timeStamp
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string timeStamp { get; set; }
 
-        private string orderStatus
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string orderStatus { get; set; }
 
-        public List<OrderLines> OrderLines
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public List<OrderLines> OrderLines { get; set; }
 
-        public Customer Customer
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Customer Customer { get; set; }
 
-        private int orderID
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private int orderID { get; set; }
     }
 }

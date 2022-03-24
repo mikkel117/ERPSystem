@@ -7,12 +7,12 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class Address
     {
-        public Address(string streetName,string city,string country,int zipCode,string region)
+        public Address(string streetName, string city, string country, int zipCode, string region)
         {
             StreetName = streetName;
             City = city;
             Country = country;
-            ZipCode = zipCode;  
+            ZipCode = zipCode;
             Region = region;
         }
         private string City { get; set; }

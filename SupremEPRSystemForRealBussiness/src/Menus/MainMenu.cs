@@ -16,6 +16,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             menu.Add(new CustomerMenu());
             menu.Add(new SalesMenu());
             menu.Add(new StorageMenu());
+            menu.Add(new CompanyMenu());
             menu.Start(this);
         }
     }

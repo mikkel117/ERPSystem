@@ -5,7 +5,9 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
     internal class CustomerMenu : Screen
     {
         public override string Title { get; set; } = " Customer Menu ";
-       
+
+
+
         protected override void Draw()
         {
             Clear(this);
@@ -17,5 +19,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
             MenuData selected = listPage.Select();
         }
+
+
     }
 }

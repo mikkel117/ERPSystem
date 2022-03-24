@@ -10,7 +10,7 @@
   <Class Name="SupremEPRSystemForRealBussiness.src.Person">
     <Position X="11.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAAAgAIAAAAAAAACAAAACAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAACAAAAAAAIAAAAAAAACAAAAAAAAAAg=</HashCode>
       <FileName>src\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -21,17 +21,10 @@
       <FileName>src\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SupremEPRSystemForRealBussiness.src.ContactInfo">
-    <Position X="8.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
-      <FileName>src\Address.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.Customer">
     <Position X="10" Y="4.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AACAAQAAACAAAAAAAAAACAAAAAAAAAASAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAgAAAAAAIAAAAAAAAAAIAAAABAAAAIAAAAAA=</HashCode>
       <FileName>src\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -64,6 +57,13 @@
     <ShowAsCollectionAssociation>
       <Property Name="OrderLines" />
     </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SupremEPRSystemForRealBussiness.ContactInfo">
+    <Position X="8.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>src\ContactInfo.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

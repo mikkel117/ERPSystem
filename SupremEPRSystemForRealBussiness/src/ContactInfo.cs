@@ -8,28 +8,9 @@ namespace SupremEPRSystemForRealBussiness
 {
     public class ContactInfo
     {
-        private string phone1
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string phone { get; set; }
 
-        private string email
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private string email { get; set; }
 
-        private string phone2
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }

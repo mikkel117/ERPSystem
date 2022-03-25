@@ -12,6 +12,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
     internal class CompanyMenu : Screen
     {
         public override string Title { get; set; } = "Company menu";
+        private List<Company> company = Database.Instance.companys.ToList();
 
         protected override void Draw()
         {
@@ -31,10 +32,10 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     CompanySetups();
                     break;
                 case ("firma info"):
-                    CompanyInfo();
+                    CompanyList(selected.Title);
                     break;
                 case ("redigere"):
-                    EditCompany();
+                    CompanyList(selected.Title);
                     break;
             }
         }
@@ -42,22 +43,51 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         private void CompanySetups()
         {
             /*a foreach loop that prints companyName, Country and Currency*/
-            foreach (var item in Database.Instance.companys)
+            foreach (var item in company)
             {
                 Console.WriteLine($"Firmanavn: {item.CompanyName}");
                 Console.WriteLine($"Land: {item.Country}");
                 Console.WriteLine($"Valuta: {item.Currency}\n");
             }
         }
+        /*a list that shows the title of every company that you can chose */
+        private void CompanyList(string CompanyName)
+        {
+            Clear(this);
+            ListPage<MenuData> listPage = new ListPage<MenuData>();
+            foreach (var item in company)
+            {
+                listPage.Add(new MenuData(item.CompanyName));
+            }
+            listPage.AddColumn("firma liste", "Title");
 
-        private void CompanyInfo()
-        {
-            Console.WriteLine("Indtast firmanavn");
+            MenuData selected = listPage.Select();
+            /*checks if you have chosen "firma info" if yes it will go to CompanyInfo*/
+            if (CompanyName == "firma info")
+            {
+                CompanyInfo(selected.Title);
+            }
+            else
+            {
+                EditCompany(selected.Title);
+            }
         }
-        
-        private void EditCompany()
+        /*shows every info of the chosen company*/
+        private void CompanyInfo(string CompanyName)
         {
-         Console.WriteLine("rediger");   
+            int index = company.FindIndex(a => a.CompanyName == CompanyName);
+            Console.WriteLine($"firmanavn: {company[index].CompanyName}");
+            Console.WriteLine($"vej: {company[index].Way}");
+            Console.WriteLine($"Husnummer: {company[index].HouseNum}");
+            Console.WriteLine($"Postnummer: {company[index].ZipCode}");
+            Console.WriteLine($"By: {company[index].City}");
+            Console.WriteLine($"Land: {company[index].Country}");
+            Console.WriteLine($"Valuta: {company[index].Currency}");
+        }
+
+        private void EditCompany(string CompanyName)
+        {
+            Console.WriteLine("EditCompany");
         }
 
 

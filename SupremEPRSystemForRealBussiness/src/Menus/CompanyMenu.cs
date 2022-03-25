@@ -42,8 +42,13 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             {
                 Console.WriteLine($"Firmanavn: {item.CompanyName}");
                 Console.WriteLine($"Land: {item.Country}");
-                Console.WriteLine($"Valuta: {item.Currency}");
+                Console.WriteLine($"Valuta: {item.Currency}\n");
             }
+        }
+
+        private void CompanyInfo()
+        {
+
         }
 
 

@@ -26,5 +26,10 @@ namespace SupremEPRSystemForRealBussiness.src
             Currency = currency;
         }
 
+        public int Add(int x, int y)
+        {
+            return x + y;
+        }
+
     }
 }

@@ -18,7 +18,7 @@ namespace SupremEPRSystemForRealBussiness.Data
         {
             Instance = new Database();
             /*makes a Instance of companys list with a Instance of the Company class*/
-            Instance.companys = new List<Company>() { new Company("Test", "idkway", 10, 5, "aalborg", "Russia", "DDK") };
+            Instance.companys = new List<Company>() { new Company("Test", "idkway", 10, 5, "aalborg", "Russia", "DDK"), new Company("Tes2t", "idkway", 10, 5, "aalborg", "Russia", "DDK") };
         }
 
 

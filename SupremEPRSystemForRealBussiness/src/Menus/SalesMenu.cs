@@ -16,8 +16,33 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.AddColumn("Menu Selection", "Title");
 
             MenuData selected = listPage.Select();
+
+            methodSelection(selected.Title);
         }
 
+        private void methodSelection(string title)
+        {
+            var methodList = new Dictionary<string, Delegate>();
+            methodList["First Sales Task"] = new Func<string>(firstSalesTask);
+            methodList["Second Sales Task"] = new Func<string>(secondSalesTask);
+            methodList["Third Sales Task"] = new Func<string>(thirdSalesTask);
 
+            Console.WriteLine(methodList[title].DynamicInvoke());
+        }
+
+        private string firstSalesTask()
+        {
+            return "First Sales Task Selected";
+        }
+
+        private string secondSalesTask()
+        {
+            return "Second Sales Task Selected";
+        }
+
+        private string thirdSalesTask()
+        {
+            return "Third Sales Task Selected";
+        }
     }
 }

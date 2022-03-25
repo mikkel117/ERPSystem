@@ -8,12 +8,13 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         protected override void Draw()
         {
             Clear(this);
+
             ListPage<MenuData> listPage = new ListPage<MenuData>();
             listPage.Add(new MenuData("First Storage Task"));
             listPage.Add(new MenuData("Second Storage Task"));
             listPage.Add(new MenuData("Third Storage Task"));
 
-            listPage.AddColumn("Storage Management", "Title");
+            listPage.AddColumn("Menu Selection", "Title");
 
             MenuData selected = listPage.Select();
         }

@@ -13,7 +13,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(new MenuData("Second Sales Task"));
             listPage.Add(new MenuData("Third Sales Task"));
 
-            listPage.AddColumn("Sales Management", "Title");
+            listPage.AddColumn("Menu Selection", "Title");
 
             MenuData selected = listPage.Select();
         }

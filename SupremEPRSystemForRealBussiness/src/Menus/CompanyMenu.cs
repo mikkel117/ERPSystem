@@ -18,7 +18,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(new MenuData("Company Configurations"));
             listPage.Add(new MenuData("Company Details"));
 
-            listPage.AddColumn("Company Management", "Title");
+            listPage.AddColumn("Menu Selection", "Title");
             
             MenuData selected = listPage.Select();
         }

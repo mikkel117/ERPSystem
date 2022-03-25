@@ -27,21 +27,13 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
         private void methodSelection(string title)
         {
+            Company companyObj = new Company();
+
             var methodList = new Dictionary<string, Delegate>();
-            methodList["Company Configurations"] = new Func<string>(companyConfig);
-            methodList["Company Details"] = new Func<string>(companyDetails);
+            methodList["Company Configurations"] = new Func<string>(companyObj.companyConfig);
+            methodList["Company Details"] = new Func<string>(companyObj.companyDetails);
 
             Console.WriteLine(methodList[title].DynamicInvoke());
-        }
-
-        private string companyConfig()
-        {
-            return "Company Configuration Selected";
-        }
-
-        private string companyDetails()
-        {
-            return "Company Details Selected";
         }
     }
 }

@@ -34,20 +34,6 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             Console.WriteLine(methodList[title].DynamicInvoke());
         }
 
-        /*
-        private object methodSelection(string title)
-        {
-            Dictionary<string, Func<string[], string>> methodDict = new Dictionary<string, Func<string[], string>>
-            {
-                { "Company Configurations", companyConfig },
-                { "Company Details", companyDetails }
-            };
-            return methodDict[title].Clone;
-
-            //return methodChoice;
-        }
-        */
-
         private string companyConfig()
         {
             return "Company Configuration Selected";

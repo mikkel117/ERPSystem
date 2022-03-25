@@ -30,8 +30,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 case ("firmaopsætninger"):
                     CompanySetups();
                     break;
-
-
+                case ("firma info"):
+                    CompanyInfo();
+                    break;
+                case ("redigere"):
+                    EditCompany();
+                    break;
             }
         }
 
@@ -48,7 +52,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
         private void CompanyInfo()
         {
-
+            Console.WriteLine("Indtast firmanavn");
+        }
+        
+        private void EditCompany()
+        {
+         Console.WriteLine("rediger");   
         }
 
 

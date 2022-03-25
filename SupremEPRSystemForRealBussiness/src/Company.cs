@@ -15,7 +15,8 @@ namespace SupremEPRSystemForRealBussiness.src
         public string Country { get; set; }
         public string Currency { get; set; }
 
-        public Company(string companyName, string way, int houseNum, int zipCode, string city, string country, string currency)
+        public Company(string companyName, string way, int houseNum, int zipCode, string city, string country,
+            string currency)
         {
             CompanyName = companyName;
             Way = way;
@@ -25,11 +26,5 @@ namespace SupremEPRSystemForRealBussiness.src
             Country = country;
             Currency = currency;
         }
-
-        public int Add(int x, int y)
-        {
-            return x + y;
-        }
-
     }
 }

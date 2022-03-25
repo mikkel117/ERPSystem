@@ -13,9 +13,12 @@ namespace SupremEPRSystemForRealBussiness
             Phone = phone;
             Email = email;
         }
-        private string Phone { get; set; }
 
-        private string Email { get; set; }
+        private string phone;
+        private string email;
+        public string Phone { get { return phone; } set { phone = value; } }
+
+        public string Email { get { return email; } set { email = value; } }
 
     }
 }

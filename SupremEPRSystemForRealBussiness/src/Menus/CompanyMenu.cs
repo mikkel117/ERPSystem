@@ -21,6 +21,32 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.AddColumn("Menu Selection", "Title");
             
             MenuData selected = listPage.Select();
+
+            methodSelection(selected.Title);
+        }
+
+        private void methodSelection(string title)
+        {
+            Dictionary<string, Func<string[], string>> methodDict = new Dictionary<string, Func<string[], string>>
+            {
+                { "Company Configurations", companyConfig },
+                { "Company Details", companyDetails }
+            };
+            object methodChoice = methodDict[title].Method;
+
+            Console.WriteLine(methodChoice);
+
+            //return methodChoice;
+        }
+
+        private string companyConfig(string[] args)
+        {
+            return Title;
+        }
+
+        private string companyDetails(string[] args)
+        {
+            return Title;
         }
     }
 }

@@ -9,17 +9,17 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 {
     internal class CompanyMenu : Screen
     {
-        public override string Title { get; set; } = " Company Menu ";
+        public override string Title { get; set; } = "[ Company Menu ]";
 
         protected override void Draw()
         {
             Clear(this);
             ListPage<MenuData> listPage = new ListPage<MenuData>();
-            listPage.Add(new MenuData("Firmaopsætninger"));
-            listPage.Add(new MenuData("Firma Info"));
-            listPage.Add(new MenuData("Third Company Task"));
-            listPage.AddColumn("Company Management", "Title");
+            listPage.Add(new MenuData("Company Configurations"));
+            listPage.Add(new MenuData("Company Details"));
 
+            listPage.AddColumn("Company Management", "Title");
+            
             MenuData selected = listPage.Select();
         }
     }

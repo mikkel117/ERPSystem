@@ -1,5 +1,5 @@
-﻿using TECHCOOL.UI;
-using SupremEPRSystemForRealBussiness.src.Menus;
+﻿using SupremEPRSystemForRealBussiness.src.Menus;
+using TECHCOOL.UI;
 
 namespace SupremEPRSystemForRealBussiness;
 class SupremEPRSystem

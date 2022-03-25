@@ -87,7 +87,16 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
         private void EditCompany(string CompanyName)
         {
-            Console.WriteLine("EditCompany");
+            Clear(this);
+            MenuData menu = new MenuData("new test");
+            Form<MenuData> editor = new Form<MenuData>();
+            editor.TextBox("test name", "Title");
+            editor.IntBox("text int", "Priority");
+
+            editor.Edit(menu);
+            Clear(this);
+            Console.WriteLine($"Todo {menu.Title} {menu.Priority}");
+
         }
 
 

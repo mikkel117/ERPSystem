@@ -10,7 +10,7 @@ namespace SupremEPRSystemForRealBussiness.Data
     partial class Database
     {
         public static Database Instance { get; set; }
-        public List<src.Customer> Customers { get; set; }
+        public List<Customer> Customers { get; set; }
         static Database()
         {
             Instance = new Database();

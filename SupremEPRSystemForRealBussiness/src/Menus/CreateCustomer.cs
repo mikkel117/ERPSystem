@@ -17,6 +17,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         {
             Clear(this);
             ListPage<MenuData> listPage = new ListPage<MenuData>();
+            //required infomation 
             listPage.Add(new MenuData("Name"));
             listPage.Add(new MenuData("Address"));
             listPage.Add(new MenuData("Contact Info"));
@@ -25,13 +26,14 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             MenuData selected = listPage.Select();
             switch (selected.Title)
             {
+                //sets up the name and lastname to the customer 
                 case ("Name"):
                     Console.Write("Name: ");
                     Customer.FirstName = Console.ReadLine();
                     Console.Write("LastName: ");
                     Customer.LastName = Console.ReadLine(); 
                     break;
-
+                //sets up the name and lastname to the customer 
                 case ("Address"):
                     Console.Write("StreetName: ");
                     string streetName = Console.ReadLine();
@@ -45,6 +47,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     string region = Console.ReadLine();
                     Customer.Address = new Address(streetName, city, country, zipCode, region);
                     break;
+                //sets up the name and lastname to the customer 
                 case ("Contact Info"):
                     Console.Write("PhoneNumber: ");
                     string phone = Console.ReadLine();
@@ -52,6 +55,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     string email = Console.ReadLine();
                     Customer.ContactInfo = new ContactInfo(phone, email);
                     break;
+                //outputs all infomation on the customer for the operatore to confirm and adding the customer to the database
                 case ("Check Info"):
                     Console.WriteLine($"ID {Customer.ID}");
                     Console.WriteLine($"Name: {Customer.FirstName}");

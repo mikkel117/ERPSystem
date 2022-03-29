@@ -2,7 +2,7 @@
 using System.Data.SQLite;
 
 
-namespace ERP 
+namespace SupremEPRSystemForRealBussiness
 {
     partial class Database 
     {

@@ -15,7 +15,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(new MenuData("Add Customer"));
             listPage.Add(new MenuData("Second Customer Task"));
             listPage.Add(new MenuData("Third Customer Task"));
-            listPage.AddColumn("Todo", "Title");
+            listPage.AddColumn("Todo", "Title"); //TODO: change the menu title
 
             MenuData selected = listPage.Select();
             switch (selected.Title)

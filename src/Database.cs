@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using System.Data.SQLite;
 
 namespace ERP 
@@ -71,9 +71,10 @@ namespace ERP
                     // string split = "************";
                     string column = "";
                     string title = "";
+                    string split = "********************************************************";
                     while (reader.Read())
                     {
-                        title = $"\n**************************** {reader.GetTableName(0)} ****************************";
+                        title = $"\n{split} {reader.GetTableName(0)} {split}";
                         
                         for (int i = 0; i < fields; i++)
                         {

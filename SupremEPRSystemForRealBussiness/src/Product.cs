@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,68 +9,32 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class Product
     {
-        private string productName
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string ProductName { get; set; }
 
-        private Array location
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Location { get; set; } //change location from array to string.
 
-        private int productID
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int ProductID { get; set; }
 
-        private double salesPrice
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public double SalesPrice { get; set; }
 
-        private double buyPrice
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public double BuyPrice { get; set; }
 
-        private string supplier
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Supplier { get; set; }
 
-        private int stock
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int Stock { get; set; }
 
-        private string description
+        public string Description { get; set; }
+
+        public Product(string productName, string location, int productID, double salesPrice, double buyPrice, string supplier, int stock, string description)
         {
-            get => default;
-            set
-            {
-            }
+            ProductName = productName;
+            Location = location;
+            SalesPrice = salesPrice;
+            BuyPrice = buyPrice;
+            Supplier = supplier;
+            Stock = stock;
+            Description = description;
         }
     }
 }
+

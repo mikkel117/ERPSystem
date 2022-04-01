@@ -6,7 +6,6 @@
         public string Title { get; set; }
         public int Priority { get; set; }
         public TodoState State { get; set; }
-        public int ID { get; set; }
         public MenuData(string title, int priority = 1)
         {
             Title = title;

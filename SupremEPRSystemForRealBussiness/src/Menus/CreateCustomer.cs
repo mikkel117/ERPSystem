@@ -7,12 +7,12 @@ using TECHCOOL.UI;
 
 namespace SupremEPRSystemForRealBussiness.src.Menus
 {
-    class CreateCustomer : Screen
+    class CreateCustomer : Screen //TODO: rename CreateCustomer to CreateCustomerMenu
     {
         public override string Title { get; set; } = "Add Customer Menu ";
         new Customer Customer = new Customer();
 
-        
+
         protected override void Draw()
         {
             Clear(this);
@@ -24,14 +24,14 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(new MenuData("Check Info"));
             listPage.AddColumn("Needed infomation", "Title");
             MenuData selected = listPage.Select();
-            switch (selected.Title)
+            switch (selected.Title) //TODO: Make a new method for this switch
             {
                 //sets up the name and lastname to the customer 
                 case ("Name"):
                     Console.Write("Name: ");
                     Customer.FirstName = Console.ReadLine();
                     Console.Write("LastName: ");
-                    Customer.LastName = Console.ReadLine(); 
+                    Customer.LastName = Console.ReadLine();
                     break;
                 //sets up the name and lastname to the customer 
                 case ("Address"):

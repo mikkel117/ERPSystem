@@ -9,9 +9,9 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         {
             Clear(this);
             ListPage<MenuData> listPage = new ListPage<MenuData>();
-            listPage.Add(new MenuData("First Storage Task"));
-            listPage.Add(new MenuData("Second Storage Task"));
-            listPage.Add(new MenuData("Third Storage Task"));
+            listPage.Add(new MenuData("First"));
+            listPage.Add(new MenuData("Second"));
+            listPage.Add(new MenuData("Third"));
             listPage.AddColumn("Todo", "Title");
             MenuData selected = listPage.Select();
         }

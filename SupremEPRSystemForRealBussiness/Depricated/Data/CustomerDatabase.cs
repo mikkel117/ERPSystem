@@ -9,15 +9,16 @@ namespace SupremEPRSystemForRealBussiness.Data
 {
     partial class Database
     {
-        public static Database Instance { get; set; }
-        static Database()
+        List<Customer> customers = new List<Customer>();
+
+        public List<Customer> SelectCustomer()
         {
-            
-            Instance = new Database();
+                return customers;
         }
 
-
-
+        public void InsertCustomer(Customer customer)
+        {
+            customers.Add(customer);
+        }
     }
-
 }

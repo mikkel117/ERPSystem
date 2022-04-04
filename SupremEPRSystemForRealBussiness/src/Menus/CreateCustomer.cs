@@ -70,7 +70,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     Console.WriteLine($"Email {Customer.ContactInfo.Email}");
                     Console.WriteLine("Press Enter to confirm the infomation is correct");
                     Console.ReadLine();
-                    Data.Database.Instance.Customers.Add(Customer);
+                    Data.Database.Instance.InsertCustomer(Customer);
                     break;
             }
         }

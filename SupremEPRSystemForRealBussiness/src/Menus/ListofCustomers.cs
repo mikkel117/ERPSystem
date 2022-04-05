@@ -22,6 +22,8 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             if (Database.Instance.SelectCustomer().Count > 0)
             {
                 //The list of customers are created here 
+                Console.WriteLine("Prees F2 to lookup customerID ");
+                listPage.AddKey(ConsoleKey.F2, Lookupcustomer);
                 listPage.AddColumn("Name", "FirstName", 10);
                 listPage.AddColumn("LastName","LastName",10);
                 listPage.AddColumn("ID ", "ID",5);
@@ -29,20 +31,8 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 Customer selected = listPage.Select();
                 //list of customers ends here
                 //selected customer details start here showing all know infomation about the customer 
-                Console.Clear();
-                Console.WriteLine("Customer Details");
-                Console.WriteLine();
-                Console.WriteLine($@"Name: {selected.FirstName} {selected.LastName}
-=======================================");
-                Console.WriteLine($@"ContactInfo:
-    Phone-Number: {selected.ContactInfo.Phone}
-    Email: {selected.ContactInfo.Email}
-=======================================");
-                Console.WriteLine($@"Address:
-    Street {selected.Address.StreetName}
-    City {selected.Address.City}
-    Country {selected.Address.Country}
-    Region {selected.Address.Region}");
+                if(selected != null)
+                    CustomerDetalis(selected);
             }
             else
             {
@@ -51,5 +41,72 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             }
 
         }
+        void CustomerDetalis(Customer selected)
+        {
+            Console.Clear();
+            Console.WriteLine("Customer Details");
+            Console.WriteLine();
+            Console.WriteLine($@"Name: {selected.FirstName} {selected.LastName}
+=======================================");
+            Console.WriteLine($@"ContactInfo:
+    Phone-Number: {selected.ContactInfo.Phone}
+    Email: {selected.ContactInfo.Email}
+=======================================");
+            Console.WriteLine($@"Address:
+    Street {selected.Address.StreetName}
+    City {selected.Address.City}
+    Country {selected.Address.Country}
+    Region {selected.Address.Region}");
+            Console.ReadLine();
+            Draw();
+        }
+
+
+        void Lookupcustomer(Customer customer)
+        {
+            int? input = null;
+            bool found = false;
+            try
+            {
+                Console.Clear();
+                Console.WriteLine("Search for a customer by id");
+                Console.Write("Pleas enter ID: ");
+                input = Convert.ToInt32(Console.ReadLine());
+            }catch (Exception ex) 
+            {
+                Console.Clear();
+                Console.WriteLine("The id you typed is invailed has to be a whole number");
+                Lookupcustomer(customer);
+            }
+            foreach (Customer c in Database.Instance.SelectCustomer())
+            {
+                if(c.ID == input)
+                {
+                    found = true;
+                    customer = c;
+                }
+            }
+            if (found == true)
+            {
+
+                ListPage<Customer> listPage = new ListPage<Customer>();
+                Clear(this);
+                listPage.AddKey(ConsoleKey.F2, Lookupcustomer);
+                listPage.AddColumn("Name", "FirstName", 10);
+                listPage.AddColumn(" ", "LastName", 10);
+                listPage.AddColumn("ID ", "ID", 5);
+                listPage.Add(customer);
+                CustomerDetalis(listPage.Select());
+                Console.Clear();
+            }
+            else
+            {
+                Console.WriteLine("The ID haven´t been assigned to a customer ");
+                Console.ReadLine();
+                Console.Clear();
+                Draw();
+            }
+        }
+
     }
 }

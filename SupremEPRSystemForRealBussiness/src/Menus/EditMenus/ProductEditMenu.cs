@@ -20,7 +20,6 @@ namespace SupremEPRSystemForRealBussiness.src.Menus.EditMenus
         protected override void Draw()
         {
             Clear(this);
-            /*Product product = new Product("edit", "edit", 10, 10, "edit", 90, "edit");*/
             Form<Product> editor = new Form<Product>();
             editor.TextBox("product name", "ProductName");
             editor.TextBox("location", "Location");
@@ -30,9 +29,6 @@ namespace SupremEPRSystemForRealBussiness.src.Menus.EditMenus
             editor.IntBox("stock", "Stock");
             editor.TextBox("description", "Description");
             editor.Edit(product);
-
-            Clear(this);
-            Console.WriteLine($"product name: {product.ProductName}");
         }
     }
 }

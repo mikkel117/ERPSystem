@@ -16,6 +16,8 @@ namespace SupremEPRSystemForRealBussiness.src
         public int Stock { get; set; }
         public string Description { get; set; }
         public int ProductID { get; set; }
+        public string ProfitPercentage { get; set; }
+        public string ProfitKR { get; set; }
         static int IDPluse = 0;
 
         public Product(string productName, string location, double salesPrice, double buyPrice, string supplier, int stock, string description)
@@ -28,6 +30,8 @@ namespace SupremEPRSystemForRealBussiness.src
             Stock = stock;
             Description = description;
             ProductID = IDPluse++;
+            ProfitPercentage = Convert.ToString(salesPrice / buyPrice * 100 + " %");
+            ProfitKR = Convert.ToString(salesPrice - buyPrice + "kr");
         }
     }
 }

@@ -9,7 +9,7 @@ namespace SupremEPRSystemForRealBussiness.Data
 {
     partial class Database
     {
-        public List<Product> products = new List<Product>();
+        private List<Product> products = new List<Product>();
 
         public void InsertProduct(Product product)
         {
@@ -47,6 +47,8 @@ namespace SupremEPRSystemForRealBussiness.Data
         public void UpdateProduct(Product product)
         {
             src.Menus.EditMenus.ProductEditMenu productEditMenu = new(product);
+            product.ProfitPercentage = Convert.ToString(product.SalesPrice / product.BuyPrice * 100 + " %");
+            product.ProfitKR = Convert.ToString(product.SalesPrice - product.BuyPrice + "kr");
         }
     }
 }

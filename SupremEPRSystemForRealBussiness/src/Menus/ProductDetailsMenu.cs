@@ -15,7 +15,10 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         {
             //set the product from this class to product you get when its called
             this.product = product;
-            Draw();
+            if (product != null)
+            {
+                Draw();
+            }
         }
         private Product product;
         public override string Title { get; set; } = "Product deltails";
@@ -23,6 +26,10 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         protected override void Draw()
         {
             Clear(this);
+            ListPage<Product> listPage = new ListPage<Product>();
+            listPage.Add(product);
+            listPage.AddKey(ConsoleKey.F1, AddProduct);
+            listPage.AddKey(ConsoleKey.F2, UpdateProduct);
             WriteLine($"product number: {product.ProductID}");
             WriteLine($"product name: {product.ProductName}");
             WriteLine($"Description: {product.Description}");
@@ -30,9 +37,22 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             WriteLine($"Purchase price: {product.BuyPrice}");
             WriteLine($"Location: {product.Location}");
             WriteLine($"Stock: {product.Stock}");
-            WriteLine($"Unit: IDK"); // TODO find out what they mean by unit
+            WriteLine($"Unit: {product.Unit}");
             WriteLine($"Advance in percent: {product.ProfitPercentage}");
             WriteLine($"Advance in kr: {product.ProfitKR}");
+            Product select = listPage.Select();
+        }
+
+        private void UpdateProduct(Product _)
+        {
+            Data.Database.Instance.UpdateProduct(product);
+        }
+
+        private void AddProduct(Product _)
+        {
+            Clear(this);
+            WriteLine("test");
+
         }
     }
 }

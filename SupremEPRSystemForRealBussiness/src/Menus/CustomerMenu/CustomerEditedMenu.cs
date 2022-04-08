@@ -17,12 +17,17 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         }
         protected override void Draw()
         {
-            
+            Clear(this);
             Form<Customer> form = new();
+            Form<Address> addrees = new();
             form.TextBox("Name", "FirstName");
             form.TextBox("LastName", "LastName");
+            addrees.TextBox("Street", "StreetName");
             form.Edit(customer);
             Clear(this);
+            addrees.Edit(customer.Address);
+
+            
         }
 
     }

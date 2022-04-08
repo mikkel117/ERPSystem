@@ -30,7 +30,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(product);
             listPage.AddKey(ConsoleKey.F1, AddProduct);
             listPage.AddKey(ConsoleKey.F2, UpdateProduct);
-            WriteLine($"product number: {product.ProductNumber}");
+            WriteLine("=====================================================");
+            WriteLine("F1: to Add new product");
+            WriteLine("F2: to Update this product");
+            WriteLine("F5: to Delete this product ");
+            WriteLine("=====================================================");
+            WriteLine($"product number: {product.ProductID}");
             WriteLine($"product name: {product.ProductName}");
             WriteLine($"Description: {product.Description}");
             WriteLine($"Sales prise: {product.SalesPrice}");

@@ -10,35 +10,49 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 {
     class ListofCustomers : Screen
     {
+        //Customer selected;
         public override string Title { get; set; } = "Customers List";
- 
 
         protected override void Draw()
         {
-            Clear(this);
+            Console.Clear();
             ListPage<Customer> listPage = new ListPage<Customer>();
-            //Checks if the database has any sutomers to show if not it gives a message that says its havent found any 
+            //Checks if the database has any cutomers to show if not it gives a message that says its havent found any 
             //if it does find some it will show the Name, lastname and the id of the customer if you press enter on one you get the full infomation 
-            if (Database.Instance.SelectCustomer().Count > 0)
-            {
+            //if (Database.Instance.SelectCustomer().Count > 0)
+            //{
                 //The list of customers are created here 
-                Console.WriteLine("Prees F2 to lookup customerID ");
-                listPage.AddKey(ConsoleKey.F2, Lookupcustomer);
-                listPage.AddColumn("Name", "FirstName", 10);
-                listPage.AddColumn("LastName","LastName",10);
-                listPage.AddColumn("ID ", "ID",5);
-                listPage.Add(Database.Instance.SelectCustomer());
-                Customer selected = listPage.Select();
-                //list of customers ends here
-                //selected customer details start here showing all know infomation about the customer 
-                if(selected != null)
-                    CustomerDetalis(selected);
+            Console.WriteLine("Press F5 to delete customer");
+            Console.WriteLine("Prees F2 to lookup customerID ");
+            Console.WriteLine("Prees F3 to Edit customer");
+            listPage.AddKey(ConsoleKey.F3, editedCustomer);
+            listPage.AddKey(ConsoleKey.F2, Lookupcustomer);
+            listPage.AddKey(ConsoleKey.F5, deleteCustomer);
+            listPage.AddColumn("Name", "FirstName", 10);
+            listPage.AddColumn("LastName","LastName",10);
+            listPage.AddColumn("ID ", "ID",5);
+            listPage.Add(Database.Instance.SelectCustomer());
+            Customer selected = null;
+            try {
+                selected = listPage.Select();
             }
-            else
+            catch (ArgumentOutOfRangeException ex)
             {
-                //An error message if no customers were found 
                 Console.WriteLine("No Customers Found (That could be a Problem)");
             }
+                
+               
+                //list of customers ends here
+                //selected customer details start here showing all know infomation about the customer 
+            if (selected != null)
+                CustomerDetalis(selected);
+            //}
+            //else
+            //{
+            //    //An error message if no customers were found 
+            //    Clear(this);
+            //    
+            //}
 
         }
         void CustomerDetalis(Customer selected)
@@ -47,16 +61,17 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             Console.WriteLine("Customer Details");
             Console.WriteLine();
             Console.WriteLine($@"Name: {selected.FirstName} {selected.LastName}
-=======================================");
-            Console.WriteLine($@"ContactInfo:
-    Phone-Number: {selected.ContactInfo.Phone}
-    Email: {selected.ContactInfo.Email}
-=======================================");
+            =======================================");
+                        Console.WriteLine($@"ContactInfo:
+                Phone-Number: {selected.ContactInfo.Phone}
+                Email: {selected.ContactInfo.Email}
+            =======================================");
+
             Console.WriteLine($@"Address:
-    Street {selected.Address.StreetName}
-    City {selected.Address.City}
-    Country {selected.Address.Country}
-    Region {selected.Address.Region}");
+            Street {selected.Address.StreetName}
+            City {selected.Address.City}
+            Country {selected.Address.Country}
+            Region {selected.Address.Region}");
             Console.ReadLine();
             Draw();
         }
@@ -106,6 +121,19 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 Console.Clear();
                 Draw();
             }
+
+        }
+        void deleteCustomer(Customer customer)
+        {
+            Database.Instance.removeCustomer(customer);
+            Console.Clear();
+            Draw();
+        }
+
+        void editedCustomer(Customer c)
+        {
+            CustomerEditedMenu edited = new(c);
+            Screen.Display(edited);
         }
 
     }

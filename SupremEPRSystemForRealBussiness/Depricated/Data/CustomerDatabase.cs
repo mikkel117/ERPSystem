@@ -20,5 +20,13 @@ namespace SupremEPRSystemForRealBussiness.Data
         {
             customers.Add(customer);
         }
+        public bool removeCustomer(Customer customer)
+        {
+            if (customers.Remove(customer))
+            {
+                return true;
+            }
+            else { return false; }  
+        }
     }
 }

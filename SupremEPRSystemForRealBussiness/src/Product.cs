@@ -8,6 +8,7 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class Product
     {
+        public string ProductNumber { get; set; }
         public string ProductName { get; set; }
         public string Location { get; set; }
         public double SalesPrice { get; set; }
@@ -21,8 +22,9 @@ namespace SupremEPRSystemForRealBussiness.src
         public string ProfitKR { get; set; }
         static int IDPluse = 0;
 
-        public Product(string productName, string location, double salesPrice, double buyPrice, string supplier, int stock, string unit, string description)
+        public Product(string productNumber, string productName, string location, double salesPrice, double buyPrice, string supplier, int stock, string unit, string description)
         {
+            ProductNumber = productNumber;
             ProductName = productName;
             Location = location;
             SalesPrice = salesPrice;

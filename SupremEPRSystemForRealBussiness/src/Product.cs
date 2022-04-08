@@ -32,8 +32,13 @@ namespace SupremEPRSystemForRealBussiness.src
             Description = description;
             ProductID = IDPluse++;
             Unit = unit;
-            ProfitPercentage = Convert.ToString(salesPrice / buyPrice * 100 + " %");
-            ProfitKR = Convert.ToString(salesPrice - buyPrice + "kr");
+            double profitKRTemp = salesPrice - buyPrice;
+            double profitPercentageTemp = profitKRTemp / salesPrice * 100;
+            profitPercentageTemp = (double)System.Math.Round(profitPercentageTemp, 2);
+            ProfitPercentage = Convert.ToString(profitPercentageTemp + " %");
+            ProfitKR = Convert.ToString(profitKRTemp + "kr");
         }
+
+
     }
 }

@@ -47,8 +47,11 @@ namespace SupremEPRSystemForRealBussiness.Data
         public void UpdateProduct(Product product)
         {
             src.Menus.EditMenus.ProductEditMenu productEditMenu = new(product);
-            product.ProfitPercentage = Convert.ToString(product.SalesPrice / product.BuyPrice * 100 + " %");
-            product.ProfitKR = Convert.ToString(product.SalesPrice - product.BuyPrice + "kr");
+            double profitKRTemp = product.SalesPrice - product.BuyPrice;
+            double profitPercentageTemp = profitKRTemp / product.SalesPrice * 100;
+            profitPercentageTemp = (double)System.Math.Round(profitPercentageTemp, 2);
+            product.ProfitPercentage = Convert.ToString(profitPercentageTemp + " %");
+            product.ProfitKR = profitKRTemp.ToString(profitKRTemp + "kr");
         }
     }
 }

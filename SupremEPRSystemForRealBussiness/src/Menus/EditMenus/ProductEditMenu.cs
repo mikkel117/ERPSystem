@@ -22,7 +22,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus.EditMenus
         {
             Clear(this);
             Form<Product> editor = new Form<Product>();
-            editor.TextBox("product number", "ProductNumber");
+            editor.TextBox("product number", "ProductID");
             editor.TextBox("product name", "ProductName");
             editor.TextBox("description", "Description");
             editor.DoubleBox("sales price", "SalesPrice");

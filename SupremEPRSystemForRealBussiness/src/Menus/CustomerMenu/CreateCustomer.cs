@@ -31,7 +31,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(new MenuData("Address"));
             listPage.Add(new MenuData("Contact Info"));
             listPage.Add(new MenuData("Check Info"));
-            listPage.AddColumn("Needed infomation", "Title");
+            listPage.AddColumn("infomation", "Title");
             MenuData selected = listPage.Select();
             if (selected != null)
             {

@@ -7,20 +7,25 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class Address
     {
-        public Address(string streetName, string city, string country, int zipCode, string region)
+        public Address(string streetName,string city,string country,int zipCode,string region)
         {
             StreetName = streetName;
             City = city;
             Country = country;
-            ZipCode = zipCode;
+            ZipCode = zipCode;  
             Region = region;
         }
-        private string City { get; set; }
-        private string StreetName { get; set; }
-        private string Floor { get; set; }
-        private string Country { get; set; }
-        private int ZipCode { get; set; }
-        private string Region { get; set; }
+        private string streetName;
+        private string city;
+        private string country;
+        private int zipCode;
+        private string region;
+        public string City { get { return city; } set { city = value; } }
+        public string StreetName { get { return streetName; } set {streetName = value; } }
+        public string Floor { get; set; }
+        public string Country { get { return country;} set { country = value; } }
+        public int ZipCode { get { return zipCode;} set { zipCode = value; } }
+        public string Region { get { return region; } set { region = value; } }
 
     }
 

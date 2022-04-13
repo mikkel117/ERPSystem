@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
+using SupremEPRSystemForRealBussiness.Data;
 using TECHCOOL.UI;
 
 
@@ -30,6 +31,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(product);
             listPage.AddKey(ConsoleKey.F1, AddProduct);
             listPage.AddKey(ConsoleKey.F2, UpdateProduct);
+            listPage.AddKey(ConsoleKey.F5, RemoveProduct);
             WriteLine("=====================================================");
             WriteLine("F1: to Add new product");
             WriteLine("F2: to Update this product");
@@ -50,14 +52,23 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
         private void UpdateProduct(Product _)
         {
-            Data.Database.Instance.UpdateProduct(product);
+            Database.Instance.UpdateProduct(product);
         }
 
         private void AddProduct(Product _)
         {
             Clear(this);
             WriteLine("test");
+        }
 
+        private void RemoveProduct(Product _)
+        {
+            bool isRemoved = Database.Instance.RemoveProduct(product);
+            if (isRemoved == true)
+            {
+                Clear(this);
+                Quit();
+            }
         }
     }
 }

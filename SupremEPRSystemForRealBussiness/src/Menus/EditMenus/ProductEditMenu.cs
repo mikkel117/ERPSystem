@@ -10,7 +10,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus.EditMenus
     internal class ProductEditMenu : Screen
     {
         public override string Title { get; set; } = "Edit Product";
-        private Product product { get; set; }
+        private Product product;
 
         public ProductEditMenu(Product product)
         {
@@ -24,12 +24,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus.EditMenus
             Form<Product> editor = new Form<Product>();
             editor.TextBox("product number", "ProductID");
             editor.TextBox("product name", "ProductName");
-            editor.TextBox("description", "Description");
             editor.DoubleBox("sales price", "SalesPrice");
             editor.DoubleBox("buy price", "BuyPrice");
             editor.TextBox("location", "Location");
             editor.IntBox("stock", "Stock");
             editor.TextBox("unit", "Unit");
+            editor.TextBox("description", "Description");
             editor.Edit(product);
         }
     }

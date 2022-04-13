@@ -9,9 +9,18 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 {
     class CreateCustomer : Screen //TODO: rename CreateCustomer to CreateCustomerMenu
     {
-        public override string Title { get; set; } = "Add Customer Menu ";
-        new Customer Customer = new Customer();
 
+        public CreateCustomer(Customer customer)
+        {
+            Customer = customer;
+        }
+        public CreateCustomer()
+        {
+            Customer = new();
+        }
+        public override string Title { get; set; } = "Add Customer Menu ";
+        Customer Customer = new();
+        
 
         protected override void Draw()
         {

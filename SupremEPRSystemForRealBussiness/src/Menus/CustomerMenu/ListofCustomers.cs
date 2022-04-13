@@ -50,11 +50,19 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         void CustomerDetalis(Customer selected)
         {
             Console.Clear();
+            Console.WriteLine("Press F5 to delete this customer");
             Console.WriteLine("Customer Details");
             Console.WriteLine();
             Console.WriteLine(CustomerString(selected, "FullName"));
             Console.WriteLine(CustomerString(selected,"Contact"));
             Console.WriteLine(CustomerString(selected, "Address"));
+            ConsoleKey button = Console.ReadKey().Key;
+            switch (button)
+            {
+                case (ConsoleKey.F5):
+                    
+                    break;
+            }
             Quit();
         }
         private string CustomerString(Customer selected,string info)
@@ -143,7 +151,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
         void editedCustomer(Customer c)
         {
-            CustomerEditedMenu edited = new(c);
+            CreateCustomer edited = new(c);
             Screen.Display(edited);
         }
         void createCustomers(Customer _)

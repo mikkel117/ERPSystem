@@ -11,7 +11,7 @@ namespace SupremEPRSystemForRealBussiness.src
         {
         }
 
-        private string ShippingAddress1 { get; set; }
+        private string ShippingAddress { get; set; }
         private string LastOrderDate { get; set; }
     }
 }

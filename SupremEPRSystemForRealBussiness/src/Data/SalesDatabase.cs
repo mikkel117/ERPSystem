@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SupremEPRSystemForRealBussiness.src;
 
-namespace SupremEPRSystemForRealBussiness.src.Data
+namespace SupremEPRSystemForRealBussiness.Data
 {
-    internal class SalesDatabase
+    partial class Database
     {
         public List<SalesOrder> salesOrders = new List<SalesOrder>();
 

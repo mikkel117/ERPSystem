@@ -7,7 +7,7 @@ using TECHCOOL.UI;
 
 namespace SupremEPRSystemForRealBussiness.src.Menus
 {
-    class CreateCustomer : Screen //TODO: rename CreateCustomer to CreateCustomerMenu
+    class CreateCustomer : Screen 
     {
 
         public CreateCustomer(Customer customer)
@@ -20,7 +20,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         }
         public override string Title { get; set; } = "Add Customer Menu ";
         Customer Customer = new();
-        
+
 
         protected override void Draw()
         {

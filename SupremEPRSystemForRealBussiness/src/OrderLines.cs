@@ -12,7 +12,7 @@ namespace SupremEPRSystemForRealBussiness.src
 
         public Product Product { get; set; }
 
-        public int ItemID { get; set; }
+        public int orderID { get; set; }
 
         public double unitPrice { get; set; }
     }

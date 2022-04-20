@@ -58,7 +58,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 {
                     Console.Clear();
                     Console.WriteLine("Customer found!!!!!! LETS GOOOO");
-                    Console.WriteLine($"{customer.FirstName}");
+                    Console.WriteLine($"{customer.}");
                 }
                 else
                 {

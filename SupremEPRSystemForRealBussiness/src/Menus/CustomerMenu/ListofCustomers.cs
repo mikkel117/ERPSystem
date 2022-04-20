@@ -19,7 +19,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             Console.Clear();
             //Checks if the database has any cutomers to show if not it gives a message that says its havent found any 
             //if it does find some it will show the Name, lastname and the id of the customer if you press enter on one you get the full infomation 
-                //The list of customers are created here 
+            //The list of customers are created here 
             Console.WriteLine("Press F5 to delete customer");
             Console.WriteLine("Prees F3 to lookup customerID ");
             Console.WriteLine("Prees F2 to Edit customer");
@@ -28,22 +28,24 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.AddKey(ConsoleKey.F2, editedCustomer);
             listPage.AddKey(ConsoleKey.F3, Lookupcustomer);
             listPage.AddKey(ConsoleKey.F5, deleteCustomer);
-            listPage.AddColumn("Name", "FirstName", 10);
-            listPage.AddColumn("LastName","LastName",10);
-            listPage.AddColumn("ID ", "ID",5);
+            listPage.AddColumn("customer Number ", "ID", 20);
+            listPage.AddColumn("fullname", "Fullname", 20);
+            listPage.AddColumn("phone number", "PhoneNumber", 20);
+            listPage.AddColumn("email", "Email", 20);
             listPage.Add(Database.Instance.SelectCustomer());
             Customer selected = null;
-            try {
+            try
+            {
                 selected = listPage.Select();
             }
             catch (ArgumentOutOfRangeException ex)
             {
                 Console.WriteLine("No Customers Found (That could be a Problem)");
             }
-                
-               
-                //list of customers ends here
-                //selected customer details start here showing all know infomation about the customer 
+
+
+            //list of customers ends here
+            //selected customer details start here showing all know infomation about the customer 
             if (selected != null)
                 CustomerDetalis(selected);
         }
@@ -55,7 +57,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             Console.WriteLine("Customer Details");
             Console.WriteLine();
             Console.WriteLine(CustomerString(selected, "FullName"));
-            Console.WriteLine(CustomerString(selected,"Contact"));
+            Console.WriteLine(CustomerString(selected, "Contact"));
             Console.WriteLine(CustomerString(selected, "Address"));
             ConsoleKey button = Console.ReadKey().Key;
             switch (button)
@@ -71,17 +73,18 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             }
             Quit();
         }
-        private string CustomerString(Customer selected,string info)
+        private string CustomerString(Customer selected, string info)
         {
             StringBuilder customerString = new();
-            switch(info){
+            switch (info)
+            {
                 case ("Contact"):
                     customerString.AppendLine("              ContactInfo");
                     customerString.AppendLine("==========================================");
                     customerString.AppendLine($"Phone-number: {selected.ContactInfo.Phone}");
                     customerString.AppendLine($"Email: {selected?.ContactInfo.Email}");
                     customerString.AppendLine("==========================================");
-                break;
+                    break;
                 case ("FullName"):
                     customerString.AppendLine("              Name");
                     customerString.AppendLine("==========================================");
@@ -112,7 +115,8 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 Console.WriteLine("Search for a customer by id");
                 Console.Write("Pleas enter ID: ");
                 input = Convert.ToInt32(Console.ReadLine());
-            }catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
                 Console.Clear();
                 Console.WriteLine("The id you typed is invailed has to be a whole number");
@@ -120,7 +124,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             }
             foreach (Customer c in Database.Instance.SelectCustomer())
             {
-                if(c.ID == input)
+                if (c.ID == input)
                 {
                     found = true;
                     customer = c;

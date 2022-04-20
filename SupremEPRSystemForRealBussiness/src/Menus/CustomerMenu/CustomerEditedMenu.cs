@@ -26,8 +26,6 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             form.Edit(customer);
             Clear(this);
             addrees.Edit(customer.Address);
-
-            
         }
 
     }

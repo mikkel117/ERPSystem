@@ -9,18 +9,21 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 {
     class CreateCustomer : Screen //TODO: rename CreateCustomer to CreateCustomerMenu
     {
-
+        public override string Title { get; set; } = "Add Customer Menu ";
+        bool isEdite = false;
         public CreateCustomer(Customer customer)
         {
             Customer = customer;
+            isEdite = true;
+            Title = "Edited Customer menu";
         }
         public CreateCustomer()
         {
             Customer = new();
         }
-        public override string Title { get; set; } = "Add Customer Menu ";
+
         Customer Customer = new();
-        
+
 
         protected override void Draw()
         {
@@ -83,7 +86,15 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Console.WriteLine($"Email {Customer.ContactInfo.Email}");
                         Console.WriteLine("Press Enter to confirm the infomation is correct");
                         Console.ReadLine();
-                        Data.Database.Instance.InsertCustomer(Customer);
+                        if (!isEdite)
+                        {
+                            Data.Database.Instance.InsertCustomer(Customer);
+                        }
+                        Customer.Fullname = $"{Customer.FirstName} {Customer.LastName}";
+                        Customer.PhoneNumber = Customer.ContactInfo.Phone;
+                        Customer.Email = Customer.ContactInfo.Email;
+                        Clear(this);
+                        Quit();
                         break;
                 }
             }

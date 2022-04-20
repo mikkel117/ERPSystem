@@ -12,11 +12,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
     {
         //Customer selected;
         public override string Title { get; set; } = "Customers List";
-        ListPage<Customer> listPage = new ListPage<Customer>();
+        ListPage<Customer> listPage;
 
         protected override void Draw()
         {
-            Console.Clear();
+            Clear(this);
+            listPage = new ListPage<Customer>();
             //Checks if the database has any cutomers to show if not it gives a message that says its havent found any 
             //if it does find some it will show the Name, lastname and the id of the customer if you press enter on one you get the full infomation 
             //The list of customers are created here 

@@ -12,7 +12,7 @@ namespace SupremEPRSystemForRealBussiness.src
         public string Tax { get; set; }
         public int TotalItems { get; set; }
         public string PaymentMethod { get; set; }
-        public string DeliveryOption { get; set; }
+        public Address DeliveryAddress { get; set; }
         public string TimeStamp { get; set; }
         public string OrderStatus { get; set; }
         public List<OrderLines> OrderLines { get; set; }

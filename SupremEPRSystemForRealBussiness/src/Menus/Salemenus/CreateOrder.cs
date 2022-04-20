@@ -56,9 +56,18 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 }
                 if(customer != null)
                 {
+                    SalesOrder salesOrder = new SalesOrder();
                     Console.Clear();
                     Console.WriteLine("Customer found!!!!!! LETS GOOOO");
-                    Console.WriteLine($"{customer.}");
+                    Console.WriteLine($"FullName: {customer.Fullname}");
+                    Console.WriteLine($"Address: {customer.Address.StreetName} {customer.Address.City}");
+                    Console.WriteLine($"Want to use this address for the order? Y/N");
+                    input = Console.ReadLine();
+                    if (input.ToUpper().Contains("Y"))
+                    {
+                       salesOrder.DeliveryAddress = customer.Address;
+                       salesOrder.Customer = customer;  
+                    }
                 }
                 else
                 {

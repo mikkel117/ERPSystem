@@ -17,8 +17,10 @@ namespace SupremEPRSystemForRealBussiness.src
         public Customer(string firstName, string lastName, ContactInfo contactInfo, Address address, string gender) : base(firstName, lastName, contactInfo, address, gender)
         {
             ID = count++;
+            Fullname = $"{firstName} {lastName}";
         }
         public int ID { get; set; }
+        public string Fullname { get; set; }    
         public string ShippingAddress1 { get; set; }
         public string LastOrderDate { get; set; }
 

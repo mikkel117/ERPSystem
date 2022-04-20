@@ -11,6 +11,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
     {
         public override string Title { get; set; } = "Add Customer Menu ";
         bool isEdite = false;
+        bool isDone = false;
         public CreateCustomer(Customer customer)
         {
             Customer = customer;
@@ -24,6 +25,14 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
         Customer Customer = new();
 
+        public Customer Test()
+        {
+            while (!isDone)
+            {
+                Draw();
+            }
+            return Customer;
+        }
 
         protected override void Draw()
         {
@@ -94,10 +103,11 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Customer.PhoneNumber = Customer.ContactInfo.Phone;
                         Customer.Email = Customer.ContactInfo.Email;
                         Clear(this);
-                        Quit();
+                        isDone = true;
                         break;
                 }
             }
+            Console.Clear();
         }
 
 

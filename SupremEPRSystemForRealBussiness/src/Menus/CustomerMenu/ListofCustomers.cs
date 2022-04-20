@@ -168,7 +168,8 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         void createCustomers(Customer _)
         {
             CreateCustomer createCustomer = new CreateCustomer();
-            Screen.Display(createCustomer);
+            Customer test = createCustomer.Test();
+            listPage.Add(test);
         }
 
     }

@@ -21,14 +21,15 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             //Checks if the database has any cutomers to show if not it gives a message that says its havent found any 
             //if it does find some it will show the Name, lastname and the id of the customer if you press enter on one you get the full infomation 
             //The list of customers are created here 
-            Console.WriteLine("Press F5 to delete customer");
-            Console.WriteLine("Prees F3 to lookup customerID ");
-            Console.WriteLine("Prees F2 to Edit customer");
-            Console.WriteLine("Prees F1 to create new customer");
-            listPage.AddKey(ConsoleKey.F1, createCustomers);
-            listPage.AddKey(ConsoleKey.F2, editedCustomer);
-            listPage.AddKey(ConsoleKey.F3, Lookupcustomer);
-            listPage.AddKey(ConsoleKey.F5, deleteCustomer);
+
+            /* Console.WriteLine("Press F5 to delete customer");
+             Console.WriteLine("Prees F3 to lookup customerID ");
+             Console.WriteLine("Prees F2 to Edit customer");
+             Console.WriteLine("Prees F1 to create new customer");
+             listPage.AddKey(ConsoleKey.F1, createCustomers);
+             listPage.AddKey(ConsoleKey.F2, editedCustomer);
+             listPage.AddKey(ConsoleKey.F3, Lookupcustomer);
+             listPage.AddKey(ConsoleKey.F5, deleteCustomer);*/
             listPage.AddColumn("customer Number ", "ID", 20);
             listPage.AddColumn("fullname", "Fullname", 20);
             listPage.AddColumn("phone number", "PhoneNumber", 20);

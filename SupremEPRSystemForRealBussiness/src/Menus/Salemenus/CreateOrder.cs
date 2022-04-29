@@ -65,8 +65,57 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     input = Console.ReadLine();
                     if (input.ToUpper().Contains("Y"))
                     {
-                       salesOrder.DeliveryAddress = customer.Address;
-                       salesOrder.Customer = customer;  
+                        salesOrder.DeliveryAddress = customer.Address;
+                        salesOrder.Customer = customer;
+                        bool done = false;
+                        while (!done)
+                        {
+                            Console.Clear();
+                            OrderLine orderline = OrderLines();
+                            salesOrder.OrderLines.Add(orderline);
+
+
+
+                            Console.Clear();
+                            Console.WriteLine("F1 to finsh SalesOrder");
+                            Console.WriteLine("Enter to add product to salesOrder");
+                            Console.WriteLine("====================================");
+                            Console.WriteLine("Customer details:");
+                            Console.WriteLine($"ID: {salesOrder.Customer.ID}");
+                            Console.WriteLine($"Name: {salesOrder.Customer.Fullname}");
+                            Console.WriteLine($"Phone: {salesOrder.Customer.ContactInfo.Phone}");
+                            Console.WriteLine("====================================");
+                            Console.WriteLine("Shipping Address:");
+                            Console.WriteLine($"Address: {salesOrder.Customer.Address.StreetName}");
+                            Console.WriteLine($"zipcode: {salesOrder.Customer.Address.ZipCode}");
+                            Console.WriteLine($"city: {salesOrder.Customer.Address.City}");
+                            Console.WriteLine("====================================");
+                            double totalprice = 0;
+                            foreach (OrderLine c in salesOrder.OrderLines)
+                            {
+                                Console.WriteLine($"Id: {c.Id}|Name: {c.Name}|Amount: {c.Amount}|Price: {c.Price} Kr.|line Total {c.totalprice} Kr.");
+                                totalprice = +c.totalprice;
+                            }
+                            Console.WriteLine($"Total price: {totalprice}Kr");
+                            ConsoleKey key = Console.ReadKey().Key;
+                            switch (key)
+                            {
+                                case ConsoleKey.F1:
+                                    Data.Database.Instance.salesOrders.Add(salesOrder); 
+                                    done = true;
+                                    foreach(OrderLine c in salesOrder.OrderLines)
+                                    {
+                                        Product p = Data.Database.Instance.GetProductByID(c.Id);
+                                        p.Stock = p.Stock - c.Amount;
+                                        
+                                    }
+                                    Console.WriteLine("Order has been placed");
+                                    break;
+                                default:
+                                    break;
+
+                            }
+                        }
                     }
                 }
                 else
@@ -77,5 +126,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
             }
         }
+       OrderLine OrderLines()
+       {
+            CreateOrderLines createOrderLines = new CreateOrderLines();
+            OrderLine something = createOrderLines.test();
+            
+            return something;
+       }
     }
 }

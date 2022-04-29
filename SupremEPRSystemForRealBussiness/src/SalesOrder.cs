@@ -15,7 +15,7 @@ namespace SupremEPRSystemForRealBussiness.src
         public Address DeliveryAddress { get; set; }
         public string TimeStamp { get; set; }
         public string OrderStatus { get; set; }
-        public List<OrderLines> OrderLines { get; set; }
+        public List<OrderLine> OrderLines = new();
         public Customer Customer { get; set; }
         public int OrderID { get; set; }
     }

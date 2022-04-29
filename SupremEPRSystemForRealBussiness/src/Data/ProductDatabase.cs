@@ -23,6 +23,19 @@ namespace SupremEPRSystemForRealBussiness.Data
             return products;
         }
 
+        public Product GetProductByID(int id)
+        {
+            foreach(Product p in products)
+            {
+                if(p.ProductID == id)
+                {
+                    return p;
+                    break;
+                }
+            }
+            return null;
+        }
+
         //Get 1 product with the product id
         public Product GetProduct(Product product)
         {

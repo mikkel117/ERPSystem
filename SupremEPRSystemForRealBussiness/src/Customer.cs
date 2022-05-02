@@ -22,7 +22,7 @@ namespace SupremEPRSystemForRealBussiness.src
         public int ID { get; set; }
         public string Fullname { get; set; }    
         public string ShippingAddress1 { get; set; }
-        public string LastOrderDate { get; set; }
+        public DateTime LastOrderDate { get; set; }
 
 
 

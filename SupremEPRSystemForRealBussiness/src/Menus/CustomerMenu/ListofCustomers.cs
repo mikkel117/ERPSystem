@@ -83,9 +83,10 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     customerString.AppendLine("==========================================");
                 break;
                 case ("FullName"):
-                    customerString.AppendLine("              Name");
+                    customerString.AppendLine("              Info");
                     customerString.AppendLine("==========================================");
                     customerString.AppendLine($"Full Name: {selected.FirstName} {selected.LastName}");
+                    customerString.AppendLine($"LastOrderDate: {selected.LastOrderDate}");
                     customerString.AppendLine("==========================================");
                     break;
                 case ("Address"):

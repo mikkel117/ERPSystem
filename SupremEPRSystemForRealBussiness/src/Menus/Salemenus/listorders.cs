@@ -16,7 +16,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         {
             Clear(this);
             ListPage<SalesOrder> listPage = new ListPage<SalesOrder>();
-            listPage.AddColumn("Order:", "OrderID");
+            listPage.AddColumn("Order:", "Orderid");
             listPage.Add(Data.Database.Instance.salesOrders);
             SalesOrder selected = listPage.Select();
         }

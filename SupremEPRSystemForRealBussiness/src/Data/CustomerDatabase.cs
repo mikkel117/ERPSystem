@@ -16,6 +16,18 @@ namespace SupremEPRSystemForRealBussiness.Data
                 return customers;
         }
 
+        public Customer customergetbyid(int id)
+        {
+            foreach(Customer customer in customers)
+            {
+                if(customer.ID == id)
+                {
+                    return customer;
+                }
+            }
+            return null;
+        }
+
         public void InsertCustomer(Customer customer)
         {
             customers.Add(customer);

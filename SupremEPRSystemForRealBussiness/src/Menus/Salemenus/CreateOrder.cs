@@ -161,6 +161,8 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 {
                     case ConsoleKey.F1:
                         Data.Database.Instance.salesOrders.Add(salesOrder);
+                        Customer customer = Data.Database.Instance.customergetbyid(salesOrder.Customer.ID);
+                        customer.LastOrderDate = salesOrder.TimeStamp;
                         done = true;
                         foreach (OrderLine c in salesOrder.OrderLines)
                         {

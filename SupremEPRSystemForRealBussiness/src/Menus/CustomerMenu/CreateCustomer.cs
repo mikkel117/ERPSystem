@@ -76,7 +76,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     case ("Contact Info"):
                         Console.Write("PhoneNumber: ");
                         string phone = Console.ReadLine();
-                        Console.Write("Email");
+                        Console.Write("Email: ");
                         string email = Console.ReadLine();
                         Customer.ContactInfo = new ContactInfo(phone, email);
                         break;
@@ -104,10 +104,10 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Customer.Email = Customer.ContactInfo.Email;
                         Clear(this);
                         isDone = true;
+                        Quit();
                         break;
                 }
             }
-            Console.Clear();
         }
 
 

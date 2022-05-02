@@ -25,7 +25,7 @@ namespace SupremEPRSystemForRealBussiness.Data
         {
             foreach (SalesOrder s in salesOrders)
             {
-                if (s.OrderID == salesOrder.OrderID)
+                if (s.Orderid == salesOrder.Orderid)
                 {
                     return s;
                 }

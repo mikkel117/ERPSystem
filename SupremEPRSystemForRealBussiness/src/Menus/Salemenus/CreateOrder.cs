@@ -23,6 +23,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                createNewOrder(true);
             else
             {
+                createNewOrder(false);
             }
         }
         void createNewOrder(bool exits)
@@ -67,55 +68,51 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     {
                         salesOrder.DeliveryAddress = customer.Address;
                         salesOrder.Customer = customer;
+                        test(salesOrder);
+
+                    }
+                    else
+                    {
                         bool done = false;
-                        while (!done)
+                        do
                         {
-                            Console.Clear();
-                            OrderLine orderline = OrderLines();
-                            salesOrder.OrderLines.Add(orderline);
-
-
 
                             Console.Clear();
-                            Console.WriteLine("F1 to finsh SalesOrder");
-                            Console.WriteLine("Enter to add product to salesOrder");
-                            Console.WriteLine("====================================");
-                            Console.WriteLine("Customer details:");
-                            Console.WriteLine($"ID: {salesOrder.Customer.ID}");
-                            Console.WriteLine($"Name: {salesOrder.Customer.Fullname}");
-                            Console.WriteLine($"Phone: {salesOrder.Customer.ContactInfo.Phone}");
-                            Console.WriteLine("====================================");
-                            Console.WriteLine("Shipping Address:");
-                            Console.WriteLine($"Address: {salesOrder.Customer.Address.StreetName}");
-                            Console.WriteLine($"zipcode: {salesOrder.Customer.Address.ZipCode}");
-                            Console.WriteLine($"city: {salesOrder.Customer.Address.City}");
-                            Console.WriteLine("====================================");
-                            double totalprice = 0;
-                            foreach (OrderLine c in salesOrder.OrderLines)
+                            Console.WriteLine("What infomation needs to be changed");
+                            Console.WriteLine("1. Street");
+                            Console.WriteLine("2. City");
+                            Console.WriteLine("3. Country");
+                            try
                             {
-                                Console.WriteLine($"Id: {c.Id}|Name: {c.Name}|Amount: {c.Amount}|Price: {c.Price} Kr.|line Total {c.totalprice} Kr.");
-                                totalprice = +c.totalprice;
+                                int sel = Convert.ToInt32(Console.ReadLine());
+                                switch(sel)
+                                {
+                                    case 1:
+                                        Console.Clear();
+                                        Console.Write("street: ");
+                                        salesOrder.Customer.Address.StreetName = Console.ReadLine();
+                                        break;
+                                    case 2:
+                                        Console.Clear();
+                                        Console.Write("City name: ");
+                                        salesOrder.Customer.Address.City = Console.ReadLine();
+                                        break;
+                                    case 3:
+                                        Console.Clear();
+                                        Console.Write("Country: ");
+                                        salesOrder.Customer.Address.Country = Console.ReadLine();
+                                        break;
+                                }
                             }
-                            Console.WriteLine($"Total price: {totalprice}Kr");
-                            ConsoleKey key = Console.ReadKey().Key;
-                            switch (key)
+                            catch (Exception ex)
                             {
-                                case ConsoleKey.F1:
-                                    Data.Database.Instance.salesOrders.Add(salesOrder); 
-                                    done = true;
-                                    foreach(OrderLine c in salesOrder.OrderLines)
-                                    {
-                                        Product p = Data.Database.Instance.GetProductByID(c.Id);
-                                        p.Stock = p.Stock - c.Amount;
-                                        
-                                    }
-                                    Console.WriteLine("Order has been placed");
-                                    break;
-                                default:
-                                    break;
+                                Console.Clear();
+                                Console.WriteLine("You must use a number to define what infomation needs to be changed");
+                                Console.ReadLine();
+                            }
+                        } while (!done);
 
-                            }
-                        }
+
                     }
                 }
                 else
@@ -126,6 +123,59 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
             }
         }
+
+        public void test(SalesOrder salesOrder)
+        {
+            bool done = false;
+            while (!done)
+            {
+                Console.Clear();
+                OrderLine orderline = OrderLines();
+                salesOrder.OrderLines.Add(orderline);
+
+
+
+                Console.Clear();
+                Console.WriteLine("F1 to finsh SalesOrder");
+                Console.WriteLine("Enter to add product to salesOrder");
+                Console.WriteLine("====================================");
+                Console.WriteLine("Customer details:");
+                Console.WriteLine($"ID: {salesOrder.Customer.ID}");
+                Console.WriteLine($"Name: {salesOrder.Customer.Fullname}");
+                Console.WriteLine($"Phone: {salesOrder.Customer.ContactInfo.Phone}");
+                Console.WriteLine("====================================");
+                Console.WriteLine("Shipping Address:");
+                Console.WriteLine($"Address: {salesOrder.Customer.Address.StreetName}");
+                Console.WriteLine($"zipcode: {salesOrder.Customer.Address.ZipCode}");
+                Console.WriteLine($"city: {salesOrder.Customer.Address.City}");
+                Console.WriteLine("====================================");
+                double totalprice = 0;
+                foreach (OrderLine c in salesOrder.OrderLines)
+                {
+                    Console.WriteLine($"Id: {c.Id}|Name: {c.Name}|Amount: {c.Amount}|Price: {c.Price} Kr.|line Total {c.totalprice} Kr.");
+                    totalprice = +c.totalprice;
+                }
+                Console.WriteLine($"Total price: {totalprice}Kr");
+                ConsoleKey key = Console.ReadKey().Key;
+                switch (key)
+                {
+                    case ConsoleKey.F1:
+                        Data.Database.Instance.salesOrders.Add(salesOrder);
+                        done = true;
+                        foreach (OrderLine c in salesOrder.OrderLines)
+                        {
+                            Product p = Data.Database.Instance.GetProductByID(c.Id);
+                            p.Stock = p.Stock - c.Amount;
+                        }
+                        Console.WriteLine("Order has been placed");
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+        }
+
        OrderLine OrderLines()
        {
             CreateOrderLines createOrderLines = new CreateOrderLines();

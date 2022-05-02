@@ -15,10 +15,8 @@ namespace SupremEPRSystemForRealBussiness.src
         public double Price { get; set; }
         public double totalprice { get; set; }
         public int Amount { get; set; }
-        public OrderLine()
-        {
-        }
-       public OrderLine(int id, string name,double price,int amount)
+
+        public OrderLine(int id, string name,double price,int amount)
         {
             Id = id;
             Name = name;

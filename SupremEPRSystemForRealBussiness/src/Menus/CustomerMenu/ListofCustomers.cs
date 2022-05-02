@@ -23,14 +23,14 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             //The list of customers are created here 
 
             /* Console.WriteLine("Press F5 to delete customer");
-             Console.WriteLine("Prees F3 to lookup customerID ");
              Console.WriteLine("Prees F2 to Edit customer");
              listPage.AddKey(ConsoleKey.F2, editedCustomer);
-             listPage.AddKey(ConsoleKey.F3, Lookupcustomer);
              listPage.AddKey(ConsoleKey.F5, deleteCustomer);*/
 
-            Console.WriteLine("Prees F1 to create new customer");
             listPage.AddKey(ConsoleKey.F1, createCustomers);
+            listPage.AddKey(ConsoleKey.F2, Lookupcustomer);
+            Console.WriteLine("Prees F1 to create new customer");
+            Console.WriteLine("Prees F2 to lookup customerID ");
             listPage.AddColumn("customer Number ", "ID", 20);
             listPage.AddColumn("fullname", "Fullname", 20);
             listPage.AddColumn("phone number", "PhoneNumber", 20);
@@ -55,9 +55,9 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         void CustomerDetalis(Customer selected)
         {
             Console.Clear();
-            Console.WriteLine("Press F5 to delete this customer");
-            Console.WriteLine("Press F2 to Edit customer");
             Console.WriteLine("Customer Details");
+            Console.WriteLine("Press F2 to Edit customer");
+            Console.WriteLine("Press F5 to delete this customer");
             Console.WriteLine();
             Console.WriteLine(CustomerString(selected, "FullName"));
             Console.WriteLine(CustomerString(selected, "Contact"));

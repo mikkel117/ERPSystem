@@ -24,7 +24,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         CreateOrder createOrder = new();
                         Screen.Display(createOrder);
                         break;
-                    case ("List of orders"):
+                    case ("List of Orders"):
                         listorders list = new(); 
                         Screen.Display(list);
                         break;

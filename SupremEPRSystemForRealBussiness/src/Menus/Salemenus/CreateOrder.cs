@@ -163,6 +163,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Data.Database.Instance.salesOrders.Add(salesOrder);
                         Customer customer = Data.Database.Instance.customergetbyid(salesOrder.Customer.ID);
                         customer.LastOrderDate = salesOrder.TimeStamp;
+                        salesOrder.price = totalprice + "kr";
                         done = true;
                         foreach (OrderLine c in salesOrder.OrderLines)
                         {

@@ -54,6 +54,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     }
                    
                 }
+                
                 catch (Exception ex)
                 {
                     Console.WriteLine("The Amount has to be a whole number");

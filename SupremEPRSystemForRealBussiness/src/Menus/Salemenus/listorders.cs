@@ -28,6 +28,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             if(Data.Database.Instance.salesOrders.Count != 0)
             {
                 SalesOrder selected = listPage.Select();
+                orderdetails(selected);
             }
             else
             {
@@ -38,9 +39,22 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         }
         void orderdetails(SalesOrder sel)
         {
+            bool editable = false;
             Quit();
+            if(sel.OrderStatus == "Payment Pending")
+            {
+                Console.WriteLine("F7 Edit");
+                editable = true;
+            }
+            Console.WriteLine("OrderDetails");
+            Console.WriteLine("============================================");
             Console.Clear();
-            Console.WriteLine("Order Details");
+            Console.WriteLine("Customer details");
+            Console.WriteLine(Builder.CustomerString(sel.Customer, "Contact"));
+            Console.WriteLine(Builder.CustomerString(sel.Customer, "FullName"));
+            Console.WriteLine(Builder.saleorders(sel));
+            Draw();
+
         }
         void neworder(SalesOrder _)
         {

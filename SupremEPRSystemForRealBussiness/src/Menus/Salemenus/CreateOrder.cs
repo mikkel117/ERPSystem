@@ -164,6 +164,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Customer customer = Data.Database.Instance.customergetbyid(salesOrder.Customer.ID);
                         customer.LastOrderDate = salesOrder.TimeStamp;
                         salesOrder.price = totalprice + "kr";
+                        salesOrder.OrderStatus = "Payment Pending";
                         done = true;
                         foreach (OrderLine c in salesOrder.OrderLines)
                         {

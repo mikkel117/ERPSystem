@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
 using SupremEPRSystemForRealBussiness.Data;
+using SupremEPRSystemForRealBussiness.src;
 
 namespace SupremEPRSystemForRealBussiness.src.Menus
 {
@@ -54,9 +55,9 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             Console.WriteLine("Press F2 to Edit customer");
             Console.WriteLine("Customer Details");
             Console.WriteLine();
-            Console.WriteLine(CustomerString(selected, "FullName"));
-            Console.WriteLine(CustomerString(selected,"Contact"));
-            Console.WriteLine(CustomerString(selected, "Address"));
+            Console.WriteLine(Builder.CustomerString(selected, "FullName"));
+            Console.WriteLine(Builder.CustomerString(selected,"Contact"));
+            Console.WriteLine(Builder.CustomerString(selected, "Address"));
             ConsoleKey button = Console.ReadKey().Key;
             switch (button)
             {
@@ -71,37 +72,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             }
             Quit();
         }
-        private string CustomerString(Customer selected,string info)
-        {
-            StringBuilder customerString = new();
-            switch(info){
-                case ("Contact"):
-                    customerString.AppendLine("              ContactInfo");
-                    customerString.AppendLine("==========================================");
-                    customerString.AppendLine($"Phone-number: {selected.ContactInfo.Phone}");
-                    customerString.AppendLine($"Email: {selected?.ContactInfo.Email}");
-                    customerString.AppendLine("==========================================");
-                break;
-                case ("FullName"):
-                    customerString.AppendLine("              Info");
-                    customerString.AppendLine("==========================================");
-                    customerString.AppendLine($"Full Name: {selected.FirstName} {selected.LastName}");
-                    customerString.AppendLine($"LastOrderDate: {selected.LastOrderDate}");
-                    customerString.AppendLine("==========================================");
-                    break;
-                case ("Address"):
-                    customerString.AppendLine("              Address");
-                    customerString.AppendLine("==========================================");
-                    customerString.AppendLine($"Street: {selected.Address.StreetName}");
-                    customerString.AppendLine($"City: {selected.Address.City}");
-                    customerString.AppendLine($"Country: {selected.Address.Country}");
-                    customerString.AppendLine($"region: {selected.Address.Region}");
-                    customerString.AppendLine("==========================================");
-                    break;
-            }
-            return customerString.ToString();
-
-        }
+        
 
         void Lookupcustomer(Customer customer)
         {

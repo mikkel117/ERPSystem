@@ -15,10 +15,10 @@ namespace SupremEPRSystemForRealBussiness.src
         public int TotalItems { get; set; }
         public string PaymentMethod { get; set; }
         public Address DeliveryAddress { get; set; }
-        public string street { get { return Customer.Address.StreetName; } }
+        public string street { set { }  get { return Customer.Address.StreetName; } }
         public string TimeStamp { get; set; }
         public string OrderStatus { get; set; }
-        public string country { get { return Customer.Address.Country; }  }
+        public string country { set { } get { return Customer.Address.Country; } }  
         public List<OrderLine> OrderLines = new();
         public Customer Customer { get; set; }
         public int CustomerId { get { return Customer.ID; } }

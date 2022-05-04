@@ -7,23 +7,28 @@ using TECHCOOL.UI;
 
 namespace SupremEPRSystemForRealBussiness.src
 {
-    class editedinfo : Screen
+    class editedorder : Screen
     {
         public override string Title { get; set; } = "Sales Editor";
         private SalesOrder S;
 
-        public editedinfo(SalesOrder s)
+        public editedorder(SalesOrder s)
         {
-            string option1 = "Infomation";
-            string option2 = "OrderContent";
             S = s;
-            ListPage<string> listPage = new ListPage<string>(); 
-            listPage.Add(option1);
-            listPage.Add(option2);
-            string sel = listPage.Select();
-            if(sel == option1)
+            Console.WriteLine("F1 Edit infomation");
+            Console.WriteLine("F2 Edit Content");
+            ConsoleKey input = Console.ReadKey().Key;
+            switch (input)
             {
-                Draw();
+                case ConsoleKey.F1:
+                    Console.Clear();
+                    Draw();
+                    break;
+                case ConsoleKey.F2:
+                    Console.Clear();
+                    Console.WriteLine("Not implemented yet");
+                    Console.ReadLine();
+                    break;
             }
             
         }
@@ -32,9 +37,9 @@ namespace SupremEPRSystemForRealBussiness.src
             Clear(this);
             Form<SalesOrder> editor = new Form<SalesOrder>();
             editor.TextBox("CustomerName", "Name");
-            editor.DoubleBox("Street", "street");
-            editor.DoubleBox("Country", "Country");
-            editor.IntBox("Statues", "OrderStatus");
+            editor.TextBox("Street", "street");
+            editor.TextBox("Country", "country");
+            editor.TextBox("Statues", "OrderStatus");
             editor.Edit(S);
         }
     }

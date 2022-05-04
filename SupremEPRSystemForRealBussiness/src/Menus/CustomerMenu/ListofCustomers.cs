@@ -41,7 +41,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             catch (ArgumentOutOfRangeException ex)
             {
                 /*Console.WriteLine("No Customers Found (That could be a Problem)");*/
-                createCustomers(new Customer());
+                createCustomers(new Customer()); /*need to be looked at later*/
             }
 
             //list of customers ends here

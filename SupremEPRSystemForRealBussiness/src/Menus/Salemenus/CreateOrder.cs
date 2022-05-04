@@ -59,7 +59,6 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 {
                     SalesOrder salesOrder = new SalesOrder();
                     Console.Clear();
-                    Console.WriteLine("Customer found!!!!!! LETS GOOOO");
                     Console.WriteLine($"FullName: {customer.Fullname}");
                     Console.WriteLine($"Address: {customer.Address.StreetName} {customer.Address.City}");
                     Console.WriteLine($"Want to use this address for the order? Y/N");
@@ -132,6 +131,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 Console.Clear();
                 OrderLine orderline = OrderLines();
                 salesOrder.OrderLines.Add(orderline);
+                salesOrder.orderlineids.Add(orderline.Id);
 
 
 
@@ -163,7 +163,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Data.Database.Instance.salesOrders.Add(salesOrder);
                         Customer customer = Data.Database.Instance.customergetbyid(salesOrder.Customer.ID);
                         customer.LastOrderDate = salesOrder.TimeStamp;
-                        salesOrder.price = totalprice + "kr";
+                        salesOrder.price = totalprice;
                         salesOrder.OrderStatus = "Payment Pending";
                         done = true;
                         foreach (OrderLine c in salesOrder.OrderLines)
@@ -172,6 +172,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                             p.Stock = p.Stock - c.Amount;
                         }
                         Console.WriteLine("Order has been placed");
+                        Quit();
                         break;
                     default:
                         break;

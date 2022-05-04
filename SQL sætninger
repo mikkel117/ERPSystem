@@ -37,12 +37,14 @@ create table Person (
 
 create table Customer(
 	CustomerId int IDENTITY(1,1),
-	PersonId int not null,
-	ShippingAddress varchar(64),
+	FirstName varchar(32),
+	LastName varchar(32),
+	ContactInfoId int not null,
+	AddressId int not null,
 	LastOrderDate date,
-	FullName varchar(32),
 	PRIMARY key(CustomerId),
-	Foreign key(PersonId) REFERENCES Person(PersonId)
+	Foreign key(ContactInfoId) REFERENCES ContactInfo(ContactInfoId),
+	Foreign key(AddressId) REFERENCES [Address](AddressId)
 );
 
 create table OrderLines(

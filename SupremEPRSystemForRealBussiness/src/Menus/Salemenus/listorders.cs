@@ -43,6 +43,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             Quit();
             if(sel.OrderStatus == "Payment Pending")
             {
+
                 Console.WriteLine("F7 Edit");
                 editable = true;
             }

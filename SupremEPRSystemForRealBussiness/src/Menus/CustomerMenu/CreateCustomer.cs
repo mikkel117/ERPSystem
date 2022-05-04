@@ -11,21 +11,21 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
     {
         public override string Title { get; set; } = "Add Customer Menu ";
         bool isEdite = false;
+        bool isStoped = false;
         bool isDone = false;
         public CreateCustomer(Customer customer)
         {
             Customer = customer;
             isEdite = true;
-            Title = "Edited Customer menu";
+            Title = "Edit Customer menu";
         }
         public CreateCustomer()
         {
             Customer = new();
         }
-
         Customer Customer = new();
 
-        public Customer Test()
+        public Customer ReturnNewCustomer()
         {
             while (!isDone)
             {
@@ -43,12 +43,11 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(new MenuData("Address"));
             listPage.Add(new MenuData("Contact Info"));
             listPage.Add(new MenuData("Check Info"));
+            listPage.Add(new MenuData("Cancel"));
             listPage.AddColumn("infomation", "Title");
             MenuData selected = listPage.Select();
             if (selected != null)
             {
-
-
                 switch (selected.Title) //TODO: Make a new method for this switch
                 {
                     //sets up the name and lastname to the customer 
@@ -103,6 +102,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Customer.PhoneNumber = Customer.ContactInfo.Phone;
                         Customer.Email = Customer.ContactInfo.Email;
                         Clear(this);
+                        isDone = true;
+                        Quit();
+                        break;
+                    case ("Cancel"):
+                        Clear(this);
+                        Customer = null;
                         isDone = true;
                         Quit();
                         break;

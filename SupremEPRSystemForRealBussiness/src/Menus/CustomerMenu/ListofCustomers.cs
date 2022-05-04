@@ -34,17 +34,20 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             try
             {
                 selected = listPage.Select();
+                if (selected != null)
+                    CustomerDetalis(selected);
+
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                Console.WriteLine("No Customers Found (That could be a Problem)");
+                /*Console.WriteLine("No Customers Found (That could be a Problem)");*/
+                createCustomers(new Customer());
             }
-
 
             //list of customers ends here
             //selected customer details start here showing all know infomation about the customer 
-            if (selected != null)
-                CustomerDetalis(selected);
+            /*if (selected != null)
+                CustomerDetalis(selected);*/
         }
         void CustomerDetalis(Customer selected)
         {
@@ -134,7 +137,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 Clear(this);
                 listPage.AddKey(ConsoleKey.F2, Lookupcustomer);
                 listPage.AddColumn("Name", "FirstName", 10);
-                listPage.AddColumn(" ", "LastName", 10);
+                listPage.AddColumn("LastName", "LastName", 10);
                 listPage.AddColumn("ID ", "ID", 5);
                 listPage.Add(customer);
                 CustomerDetalis(listPage.Select());
@@ -161,11 +164,15 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             CreateCustomer edited = new(c);
             Screen.Display(edited);
         }
+
         void createCustomers(Customer _)
         {
             CreateCustomer createCustomer = new CreateCustomer();
-            Customer test = createCustomer.Test();
-            listPage.Add(test);
+            Customer returnedCustomer = createCustomer.ReturnNewCustomer();
+            if (returnedCustomer != null)
+            {
+                listPage.Add(returnedCustomer);
+            }
         }
 
     }

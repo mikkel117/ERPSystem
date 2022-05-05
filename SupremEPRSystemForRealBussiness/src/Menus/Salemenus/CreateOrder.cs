@@ -16,7 +16,6 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             ListPage<MenuData> listPage = new ListPage<MenuData>();
             listPage.Add(new MenuData("exsiting customer"));
             listPage.AddColumn("Options", "Title");
-
             MenuData selected = listPage.Select();
             if (selected != null && selected.Title == "exsiting customer")
                createNewOrder(true);

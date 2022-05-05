@@ -10,6 +10,7 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class OrderLine
     {
+        static int nextID = 0;
         public int Id { get; set; }
         public string Name { get; set; }
         public int ProductID { get; set; }
@@ -19,7 +20,7 @@ namespace SupremEPRSystemForRealBussiness.src
 
         public OrderLine(int id, string name,double price,int amount)
         {
-            Id = id;
+            Id = nextID++;
             Name = name;
             Price = price;  
             Amount = amount;

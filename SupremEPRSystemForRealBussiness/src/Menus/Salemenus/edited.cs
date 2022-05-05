@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SupremEPRSystemForRealBussiness.src.Menus;
 using TECHCOOL.UI;
 
 namespace SupremEPRSystemForRealBussiness.src
@@ -52,22 +53,63 @@ namespace SupremEPRSystemForRealBussiness.src
         }
         void contet()
         {
-            Clear(this);
-            Console.WriteLine("F7 Delete orderline");
-            Console.WriteLine("Add order Line");
-            ListPage<OrderLine> listPage = new();
-            listPage.Add(S.OrderLines);
-            listPage.AddColumn("OrderLineId", "Id");
-            listPage.AddColumn("Product", "Name");
-            listPage.AddColumn("Amount", "Amount");
-            listPage.AddColumn("Price", "totalprice");
-            OrderLine sel = listPage.Select();
-            ConsoleKey key = Console.ReadKey().Key;
-            if (key == ConsoleKey.F7)
+            bool edit = true;
+            OrderLine sel;
+            while (edit)
             {
-                Data.Database.Instance.GetProductByID(sel.);
+                Clear(this);
+                Console.WriteLine("F7 Delete orderline");
+                Console.WriteLine("F5 Add order Line");
+                ListPage<OrderLine> listPage = new();
+                listPage.Add(S.OrderLines);
+                listPage.AddKey(ConsoleKey.F5, neworderline);
+                listPage.AddKey(ConsoleKey.F7, removeorderline);
+                listPage.AddColumn("OrderLineId", "Id");
+                listPage.AddColumn("Product", "Name");
+                listPage.AddColumn("Amount", "Amount");
+                listPage.AddColumn("Price", "totalprice");
+                try
+                {
+                    sel = listPage.Select();
+                }catch { }
+                ConsoleKey key = Console.ReadKey().Key;
+                if (key == ConsoleKey.Escape)
+                {
+                    edit = false;
+                    Console.Clear();
+                    Quit();
+                }
+            }
+            void removeorderline(OrderLine sel)
+            {
+                Data.Database.Instance.GetProductByID(sel.ProductID).Stock = +sel.Amount;
                 S.price = -sel.totalprice;
-
+                S.OrderLines.Remove(sel);
+                if (S.OrderLines.Count == 0)
+                {
+                    Data.Database.Instance.salesOrders.Remove(S);
+                    Quit();
+                    Console.Clear();
+                    listorders listorders = new();
+                    Screen.Display(listorders);
+                }
+                else
+                {
+                    Console.Clear();
+                    Quit();
+                    Draw();
+                }
+            }
+            void neworderline(OrderLine _)
+            {
+                CreateOrderLines createOrderLines = new();
+                OrderLine line = createOrderLines.test();
+                S.OrderLines.Add(line);
+                S.totalPrice =+ line.totalprice;
+                Data.Database.Instance.GetProductByID(line.ProductID).Stock = Data.Database.Instance.GetProductByID(line.ProductID).Stock - line.Amount; 
+                Quit();
+                Console.Clear();
+                Draw();
             }
         }
     }

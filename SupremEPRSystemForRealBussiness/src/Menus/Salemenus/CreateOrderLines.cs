@@ -21,24 +21,27 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             Clear(this);
             ListPage<Product> listPage = new ListPage<Product>();
             listPage.Add(Data.Database.Instance.SelectProducts());
+            listPage.AddKey(ConsoleKey.Escape, back);
             listPage.AddColumn("ProductName", "ProductName");
             listPage.AddColumn("Price", "SalesPrice");
             listPage.AddColumn("Stock", "Stock");
             Product selected = listPage.Select();
             Clear(this);
+            Console.WriteLine("Type: 'Exit' to exit this menu");
             Console.WriteLine("Product | Price | stock");
             Console.WriteLine($"{selected.ProductName} | {selected.SalesPrice} | {selected.Stock}");
             Console.Write("Amount: ");
             bool success = false;
-            int input = 0;
+            string input = Console.ReadLine();
+            int number = 0;
             while (!success)
             {
                 try
                 {
-                    input = Convert.ToInt32(Console.ReadLine());
-                    if(input <= selected.Stock)
+                    number = Convert.ToInt32(input);
+                    if(number <= selected.Stock)
                     {
-                        if(input > 0)
+                        if(number > 0)
                         {
                             success = true;
                         }
@@ -57,14 +60,32 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 
                 catch (Exception ex)
                 {
-                    Console.WriteLine("The Amount has to be a whole number");
+                    if(input.ToUpper() == "EXIT")
+                    {
+                        Quit();
+                        Console.Clear();
+                        Draw();
+                    }
+                    else
+                    {
+                        Console.WriteLine("The Amount has to be a whole number");
+                    }
+                    
                 }
             }
-            orderLine = new OrderLine(selected.ProductID, selected.ProductName, selected.SalesPrice,input);
+            orderLine = new OrderLine(selected.ProductID, selected.ProductName, selected.SalesPrice,number);
             Console.WriteLine("order line has been created!");
 
 
 
+
+        }
+        void back(Product _)
+        {
+            Quit();
+            Console.Clear();
+            listorders listorders = new();
+            Screen.Display(listorders);
         }
     }
 }

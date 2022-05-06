@@ -11,12 +11,12 @@ namespace SupremEPRSystemForRealBussiness.src
         //{
 
         //}
-        public Person(string firstName, string lastName, ContactInfo contactInfo, Address address, string gender) {
+        public Person(string firstName, string lastName, ContactInfo contactInfo, Address address)
+        {
             FirstName = firstName;
             LastName = lastName;
             ContactInfo = contactInfo;
             Address = address;
-            Gender = gender;
         }
 
         public string FirstName { get; set; }
@@ -27,7 +27,5 @@ namespace SupremEPRSystemForRealBussiness.src
 
         public Address Address { get; set; }
 
-        public string Gender { get; set; }
-      
     }
 }

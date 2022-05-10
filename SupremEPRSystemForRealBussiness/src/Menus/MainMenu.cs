@@ -13,7 +13,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 
             Menu menu = new Menu();
 
-            menu.Add(new CustomerMenu());
+            menu.Add(new ListofCustomers());
             menu.Add(new SalesMenu());
             menu.Add(new StorageMenu());
             menu.Add(new CompanyMenu());

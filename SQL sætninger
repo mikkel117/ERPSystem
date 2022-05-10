@@ -1,0 +1,84 @@
+create table Product(
+	ProductId int IDENTITY(1,1),
+	ProductName varchar(64),
+	Supplier varchar(32),
+	[Location] varchar(32),
+	SalesPrice int,
+	BuyPrice int,
+	Stock int,
+	[Description] varchar(150),
+	PRIMARY key(ProductId)
+);
+
+
+create table [Address] (
+	AddressId int identity(1,1),
+	City varchar(68),
+	ZipCode int,
+	StreetName varchar(85),
+	Country varchar(56),
+	[Floor] int,
+	Region varchar(32),
+	primary key(AddressId)
+);
+
+
+create table Person (
+	PersonId INT IDENTITY(1,1),
+	FirstName VARCHAR(32),
+	LastName varchar(32),
+	Gender varchar(32),
+	ContactInfoId INT NOT NULL,
+	AddressId INT not null,
+	PRIMARY KEY(PersonId),
+	FOREIGN KEY(ContactInfoId) REFERENCES ContactInfo(ContactInfoId),
+	Foreign key(AddressId) REFERENCES [Address](AddressId)
+);
+
+create table Customer(
+	CustomerId int IDENTITY(1,1),
+	FirstName varchar(32),
+	LastName varchar(32),
+	ContactInfoId int not null,
+	AddressId int not null,
+	LastOrderDate date,
+	PRIMARY key(CustomerId),
+	Foreign key(ContactInfoId) REFERENCES ContactInfo(ContactInfoId),
+	Foreign key(AddressId) REFERENCES [Address](AddressId)
+);
+
+create table OrderLines(
+	OrderLineId int IDENTITY(1,1),
+	OrderId int not null,
+	Quantity int,
+	UnitPrice int,
+	ProductId int not null,
+	PRIMARY key(OrderLineId),
+	Foreign key(OrderId) REFERENCES [Order](OrderId),
+	Foreign key(ProductId) REFERENCES Product(ProductId)
+);
+
+create table [Order](
+	OrderId int IDENTITY(1,1),
+	CustomerId int not null,
+	TotalItems int,
+	TotalPrice int,
+	Tax tinyint,
+	PaymentMethod varchar(32),
+	DeliveryAddress varchar(32),
+	[TimeStamp] time,
+	OrderStatus varchar(32),
+	PRIMARY key(OrderId),
+	Foreign key(CustomerId) REFERENCES Customer(CustomerId)
+);
+
+create table Employee(
+	EmployeeId int IDENTITY(1,1),
+	PersonId int not null,
+	WorkPhone varchar(16),
+	Salery Float,
+	Position varchar(32),
+	Department varchar(32), 
+	PRIMARY key(EmployeeId),
+	Foreign key(PersonId) REFERENCES Person(PersonId)
+);

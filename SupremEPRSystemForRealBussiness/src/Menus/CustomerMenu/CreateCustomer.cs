@@ -9,18 +9,30 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
 {
     class CreateCustomer : Screen 
     {
-
+        public override string Title { get; set; } = "Add Customer Menu ";
+        bool isEdite = false;
+        bool isStoped = false;
+        bool isDone = false;
         public CreateCustomer(Customer customer)
         {
             Customer = customer;
+            isEdite = true;
+            Title = "Edit Customer menu";
         }
         public CreateCustomer()
         {
             Customer = new();
         }
-        public override string Title { get; set; } = "Add Customer Menu ";
         Customer Customer = new();
 
+        public Customer ReturnNewCustomer()
+        {
+            while (!isDone)
+            {
+                Draw();
+            }
+            return Customer;
+        }
 
         protected override void Draw()
         {
@@ -31,12 +43,11 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.Add(new MenuData("Address"));
             listPage.Add(new MenuData("Contact Info"));
             listPage.Add(new MenuData("Check Info"));
+            listPage.Add(new MenuData("Cancel"));
             listPage.AddColumn("infomation", "Title");
             MenuData selected = listPage.Select();
             if (selected != null)
             {
-
-
                 switch (selected.Title) //TODO: Make a new method for this switch
                 {
                     //sets up the name and lastname to the customer 
@@ -64,13 +75,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     case ("Contact Info"):
                         Console.Write("PhoneNumber: ");
                         string phone = Console.ReadLine();
-                        Console.Write("Email");
+                        Console.Write("Email: ");
                         string email = Console.ReadLine();
                         Customer.ContactInfo = new ContactInfo(phone, email);
                         break;
                     //outputs all infomation on the customer for the operatore to confirm and adding the customer to the database
                     case ("Check Info"):
-                        Console.WriteLine($"ID {Customer.ID}");
                         Console.WriteLine($"Name: {Customer.FirstName}");
                         Console.WriteLine($"LastName: {Customer.LastName}\n");
                         Console.WriteLine($"address:");
@@ -83,7 +93,23 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Console.WriteLine($"Email {Customer.ContactInfo.Email}");
                         Console.WriteLine("Press Enter to confirm the infomation is correct");
                         Console.ReadLine();
-                        Data.Database.Instance.InsertCustomer(Customer);
+                        if (!isEdite)
+                        {
+                            Data.Database.Instance.AddCustomer(Customer);
+                        }
+                        Customer.Fullname = $"{Customer.FirstName} {Customer.LastName}";
+                        Customer.PhoneNumber = Customer.ContactInfo.Phone;
+                        Customer.Email = Customer.ContactInfo.Email;
+                        Data.Database.Instance.UpdateCustomer(Customer);
+                        Clear(this);
+                        isDone = true;
+                        Quit();
+                        break;
+                    case ("Cancel"):
+                        Clear(this);
+                        Customer = null;
+                        isDone = true;
+                        Quit();
                         break;
                 }
             }

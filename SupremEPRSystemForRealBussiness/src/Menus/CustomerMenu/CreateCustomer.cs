@@ -81,7 +81,6 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         break;
                     //outputs all infomation on the customer for the operatore to confirm and adding the customer to the database
                     case ("Check Info"):
-                        Console.WriteLine($"ID {Customer.ID}");
                         Console.WriteLine($"Name: {Customer.FirstName}");
                         Console.WriteLine($"LastName: {Customer.LastName}\n");
                         Console.WriteLine($"address:");
@@ -96,11 +95,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         Console.ReadLine();
                         if (!isEdite)
                         {
-                            Data.Database.Instance.InsertCustomer(Customer);
+                            Data.Database.Instance.AddCustomer(Customer);
                         }
                         Customer.Fullname = $"{Customer.FirstName} {Customer.LastName}";
                         Customer.PhoneNumber = Customer.ContactInfo.Phone;
                         Customer.Email = Customer.ContactInfo.Email;
+                        Data.Database.Instance.UpdateCustomer(Customer);
                         Clear(this);
                         isDone = true;
                         Quit();

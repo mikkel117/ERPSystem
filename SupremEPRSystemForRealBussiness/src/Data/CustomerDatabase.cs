@@ -15,7 +15,7 @@ namespace SupremEPRSystemForRealBussiness.Data
 
         public List<Customer> SelectCustomer()
         {
-            GetCustomerById();
+            GetCustomerById(7);
             /*Customer test = GetCustomerById();*/
             /*List<Customer> test = GetCustomer();*/
             return customers;
@@ -150,7 +150,7 @@ namespace SupremEPRSystemForRealBussiness.Data
 
 
 
-        public Customer? GetCustomerById(int? Id = 7)
+        public Customer? GetCustomerById(int? Id)
         {
             SqlDataReader dr;
             SqlCommand cmd = connection.CreateCommand();

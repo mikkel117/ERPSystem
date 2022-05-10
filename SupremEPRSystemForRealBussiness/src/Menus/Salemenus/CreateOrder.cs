@@ -18,7 +18,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             listPage.AddColumn("Options", "Title");
             MenuData selected = listPage.Select();
             if (selected != null && selected.Title == "exsiting customer")
-               createNewOrder(true);
+                createNewOrder(true);
             else
             {
                 createNewOrder(false);
@@ -44,7 +44,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     {
                         try
                         {
-                            if(Convert.ToInt32(input) == c.ID)
+                            if (Convert.ToInt32(input) == c.ID)
                             {
                                 customer = c;
                                 break;
@@ -53,7 +53,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                         catch (Exception) { }
                     }
                 }
-                if(customer != null)
+                if (customer != null)
                 {
                     SalesOrder salesOrder = new SalesOrder();
                     Console.Clear();
@@ -82,7 +82,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                             try
                             {
                                 int sel = Convert.ToInt32(Console.ReadLine());
-                                switch(sel)
+                                switch (sel)
                                 {
                                     case 1:
                                         Console.Clear();
@@ -159,7 +159,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 {
                     case ConsoleKey.F1:
                         Data.Database.Instance.salesOrders.Add(salesOrder);
-                        Customer customer = Data.Database.Instance.customergetbyid(salesOrder.Customer.ID);
+                        Customer customer = Data.Database.Instance.GetCustomerById(salesOrder.Customer.ID);
                         customer.LastOrderDate = salesOrder.TimeStamp;
                         salesOrder.price = totalprice;
                         salesOrder.OrderStatus = "Payment Pending";
@@ -179,12 +179,12 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
             }
         }
 
-       OrderLine OrderLines()
-       {
+        OrderLine OrderLines()
+        {
             CreateOrderLines createOrderLines = new CreateOrderLines();
             OrderLine something = createOrderLines.test();
-            
+
             return something;
-       }
+        }
     }
 }

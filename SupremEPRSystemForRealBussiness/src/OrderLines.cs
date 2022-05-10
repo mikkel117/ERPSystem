@@ -8,36 +8,12 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class OrderLines
     {
-        private int quantity
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int quantity { get; set; }
 
-        private Product Product
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Product Product { get; set; }
 
-        private int ItemID
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int orderID { get; set; }
 
-        private double unitPrice
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public double unitPrice { get; set; }
     }
 }

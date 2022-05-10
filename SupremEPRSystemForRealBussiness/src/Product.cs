@@ -8,68 +8,26 @@ namespace SupremEPRSystemForRealBussiness.src
 {
     public class Product
     {
-        private string productName
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string ProductName { get; set; }
+        public string Location { get; set; }
+        public double SalesPrice { get; set; }
+        public double BuyPrice { get; set; }
+        public string Supplier { get; set; }
+        public int Stock { get; set; }
+        public string Description { get; set; }
+        public int ProductID { get; set; }
+        static int IDPluse = 0;
 
-        private Array location
+        public Product(string productName, string location, double salesPrice, double buyPrice, string supplier, int stock, string description)
         {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private int productID
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private double salesPrice
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private double buyPrice
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private string supplier
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private int stock
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private string description
-        {
-            get => default;
-            set
-            {
-            }
+            ProductName = productName;
+            Location = location;
+            SalesPrice = salesPrice;
+            BuyPrice = buyPrice;
+            Supplier = supplier;
+            Stock = stock;
+            Description = description;
+            ProductID = IDPluse++;
         }
     }
 }

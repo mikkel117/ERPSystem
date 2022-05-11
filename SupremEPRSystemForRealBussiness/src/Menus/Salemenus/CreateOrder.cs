@@ -115,7 +115,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("NO customer found do you want to create a new customer?");
+                    Console.WriteLine("NO customer found");
                 }
 
             }

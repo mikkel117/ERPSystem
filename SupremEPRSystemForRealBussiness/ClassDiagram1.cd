@@ -6,7 +6,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAACAAAAAAAIAAAAAAAACAAAAAAAAAAg=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAAg=</HashCode>
       <FileName>src\Person.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -19,7 +19,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAiIAAAAAAAAAAIAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AACAAQAAgAAAAACIAAAACAAAAAIAAAADAAAAAAAAAIA=</HashCode>
       <FileName>src\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -47,42 +47,29 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAACAAgAAABAAAQAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>src\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.SalesOrder">
     <Position X="8.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIEAACAAEAAAAAAAAgAABABAAAAAQAAAEAAAAAAAAQA=</HashCode>
+      <HashCode>EAEBAACBEAAiAAAAACAABARAAAQAAhACAAAAAAAAAAA=</HashCode>
       <FileName>src\SalesOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Customer" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="OrderLines" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="SupremEPRSystemForRealBussiness.src.OrderLines">
-    <Position X="8.25" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAgAAAAAAAAAAAAACAAAAAACAAAAA=</HashCode>
-      <FileName>src\OrderLines.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Product" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.Product">
     <Position X="4.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAACAABgAIAAAAIAAAAAgAAAAAAAAAAAAAAIAAA=</HashCode>
+      <HashCode>EAAAAAACAABgEIAAIBIAAAAAgAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>src\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SupremEPRSystemForRealBussiness.src.Company">
-    <Position X="1.75" Y="3" Width="1.5" />
+    <Position X="1" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Company.cs</FileName>

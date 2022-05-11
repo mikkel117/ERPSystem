@@ -103,7 +103,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     customerString.AppendLine("==========================================");
                     break;
                 case ("LastOrder"):
-                    if (selected.LastOrderDate != "01-01-1999 00:00:00")
+                    if (selected.LastOrderDate != "01-01-1900 00:00:00")
                     {
                         customerString.AppendLine("              LastOrder");
                         customerString.AppendLine("==========================================");
@@ -157,7 +157,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
         }
         void deleteCustomer(Customer customer)
         {
-            Database.Instance.removeCustomer(customer);
+            Database.Instance.RemoveCustomerById(customer.ID);
             listPage.Remove(customer);
             Quit();
         }

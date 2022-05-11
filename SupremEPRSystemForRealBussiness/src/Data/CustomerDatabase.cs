@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,41 +12,21 @@ namespace SupremEPRSystemForRealBussiness.Data
 {
     partial class Database
     {
-        List<Customer> customers = new List<Customer>();
-
-        public List<Customer> SelectCustomer()
-        {
-            GetCustomerById(7);
-            /*Customer test = GetCustomerById();*/
-            /*List<Customer> test = GetCustomer();*/
-            return customers;
-        }
-
-        public void InsertCustomer(Customer customer)
-        {
-            customers.Add(customer);
-        }
-        public bool removeCustomer(Customer customer)
-        {
-            if (customers.Remove(customer))
-            {
-                return true;
-            }
-            else { return false; }
-        }
-
+        /*adds a customer, address and contactInfo in the database*/
         public bool AddCustomer(Customer customer)
         {
-            int? AddressId = DoesAddressIdExit(customer);
             SqlDataReader dr;
             SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = $@"insert into Address (City, Country, Region, StreetName, ZipCode) 
+            cmd.CommandText = $@"
+            insert into Address (City, Country, Region, StreetName, ZipCode) 
             values (@City, @Country, @Region, @StreetName, @ZipCode)
+
             insert into ContactInfo (Email, PhoneNum) values (@Email, @PhoneNum)
 
             insert into Customer (FirstName, LastName, LastOrderDate, AddressId, ContactInfoId) values(@FirstName, @LastName, '19000101',
             (select top 1 AddressId from [Address] order by AddressId desc),
             (select top 1 ContactInfoId from ContactInfo order by ContactInfoId desc))";
+
             cmd.Parameters.AddWithValue("@City", customer.Address.City);
             cmd.Parameters.AddWithValue("@Country", customer.Address.Country);
             cmd.Parameters.AddWithValue("@Region", customer.Address.Region);
@@ -59,6 +40,7 @@ namespace SupremEPRSystemForRealBussiness.Data
             return true;
         }
 
+        /*get all customers*/
         public List<Customer> GetCustomer()
         {
             List<Customer> customers = new();
@@ -88,68 +70,106 @@ namespace SupremEPRSystemForRealBussiness.Data
             dr.Close();
             return customers;
         }
-
+        /*remove customer by id*/
         public bool RemoveCustomerById(int Id)
         {
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = @"
-            delete from Address where AddressId = ()
-            delete from Customer where CustomerId = @id;
+            int? Addr = GetAddressId(Id);
+            int? Contact = GetContactId(Id);
+            if (Addr != null && Contact != null)
+            {
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"
+            delete from Customer where CustomerId = @id
+
+            delete from [Address] where AddressId = @AddrId
+
+            delete from ContactInfo where ContactInfoId = @ContactId
             
             ";
-            cmd.Parameters.AddWithValue("@id", Id);
-            cmd.ExecuteNonQuery();
-            return true;
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.Parameters.AddWithValue("@AddrId", Addr);
+                cmd.Parameters.AddWithValue("@ContactId", Contact);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+        /*update customer*/
+        public bool UpdateCustomer(Customer customer)
+        {
+            int? AddrID = GetAddressId(customer.ID);
+            int? ContactId = GetContactId(customer.ID);
+            if (AddrID != null && ContactId != null)
+            {
+                SqlDataReader dr;
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = @"
+            UPDATE Customer set FirstName = @FirstName, LastName = @LastName where CustomerId = @id
 
-        public int? DoesAddressIdExit(Customer customer)
+            UPDATE [Address] set City = @City, ZipCode = @zipCode, StreetName = @StreetName, Region = @Region 
+            where AddressId = @AddrId
+
+            Update ContactInfo set PhoneNum = @PhoneNum, Email = @Email 
+            where ContactInfoId = @ContactId
+            ";
+                cmd.Parameters.AddWithValue("@id", customer.ID);
+                cmd.Parameters.AddWithValue("@AddrId", AddrID);
+                cmd.Parameters.AddWithValue("@ContactId", ContactId);
+                cmd.Parameters.AddWithValue("@FirstName", customer.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", customer.LastName);
+                cmd.Parameters.AddWithValue("@City", customer.Address.City);
+                cmd.Parameters.AddWithValue("@ZipCode", customer.Address.ZipCode);
+                cmd.Parameters.AddWithValue("@StreetName", customer.Address.StreetName);
+                cmd.Parameters.AddWithValue("@Region", customer.Address.Region);
+                cmd.Parameters.AddWithValue("@PhoneNum", customer.ContactInfo.Phone);
+                cmd.Parameters.AddWithValue("@Email", customer.Email);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /*finds the address id */
+        int? GetAddressId(int id)
         {
             SqlDataReader dr;
             SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = @"select AddressID from [Address] where City = @City 
-            and Country = @Country and Region = @Region and StreetName = @StreetName and ZipCode = @ZipCode";
-            cmd.Parameters.AddWithValue("@City", customer.Address.City);
-            cmd.Parameters.AddWithValue("@Country", customer.Address.Country);
-            cmd.Parameters.AddWithValue("@Region", customer.Address.Region);
-            cmd.Parameters.AddWithValue("@StreetName", customer.Address.StreetName);
-            cmd.Parameters.AddWithValue("@ZipCode", customer.Address.ZipCode);
+            cmd.CommandText = @"select AddressId from Customer where CustomerId = @id";
+            cmd.Parameters.AddWithValue("@id", id);
             dr = cmd.ExecuteReader();
             int? AddressId = null;
             if (dr.Read())
             {
                 AddressId = dr.GetInt32(0);
-
             }
+            dr.Close();
             return AddressId;
         }
 
-        public bool UpdateCustomer(Customer customer)
+        /*finds the contact id*/
+        int? GetContactId(int id)
         {
             SqlDataReader dr;
             SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = @"
-            UPDATE Customer set FirstName = @FirstName, LastName = @LastName where CustomerId = @id
-            UPDATE [Address] set City = @City, ZipCode = @zipCode, StreetName = @StreetName, Region = @Region 
-            from Customer 
-            where Customer.AddressId = @id
-            Update [ContactInfoId] set PhoneNum = @PhoneNum, Email = @Email 
-            where (select ContactInfoId from Customer where CustomerId = @id)
-            ";
-            cmd.Parameters.AddWithValue("@id", customer.ID);
-            cmd.Parameters.AddWithValue("@FirstName", customer.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", customer.LastName);
-            cmd.Parameters.AddWithValue("@City", customer.Address.City);
-            cmd.Parameters.AddWithValue("@ZipCode", customer.Address.ZipCode);
-            cmd.Parameters.AddWithValue("@StreetName", customer.Address.StreetName);
-            cmd.Parameters.AddWithValue("@Region", customer.Address.Region);
-            cmd.Parameters.AddWithValue("@PhoneNum", customer.ContactInfo.Phone);
-            cmd.Parameters.AddWithValue("@Email", customer.Email);
-            cmd.ExecuteNonQuery();
-            return true;
+            cmd.CommandText = @"select ContactInfoId  from Customer where CustomerId = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            dr = cmd.ExecuteReader();
+            int? ContactId = null;
+            if (dr.Read())
+            {
+                ContactId = dr.GetInt32(0);
+            }
+            dr.Close();
+            return ContactId;
         }
 
 
-
+        /*get a customer by id*/
         public Customer? GetCustomerById(int? Id)
         {
             SqlDataReader dr;
@@ -191,6 +211,21 @@ namespace SupremEPRSystemForRealBussiness.Data
             }
             dr.Close();
             return null;
+        }
+
+        public bool UpdateLastOrderDate(int Id, string date)
+        {
+            DateTime dt = DateTime.ParseExact(date, "dd-MM-yyyy",
+                                  CultureInfo.InvariantCulture);
+            dt.ToString("yyyyMMdd");
+            SqlDataReader dr;
+            SqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = @"update Customer set LastOrderDate = @Date
+            where CustomerId = @id";
+            cmd.Parameters.AddWithValue("@id", Id);
+            cmd.Parameters.AddWithValue("@Date", dt);
+            cmd.ExecuteNonQuery();
+            return false;
         }
     }
 }

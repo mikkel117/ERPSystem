@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SupremEPRSystemForRealBussiness.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                 Customer customer = null;
                 Console.WriteLine("vaild search infomation Customer ID,Email,Phone-Number");
                 string input = Console.ReadLine();
-                foreach (Customer c in Data.Database.Instance.SelectCustomer())
+                foreach (Customer c in Data.Database.Instance.GetCustomer())
                 {
                     if (input == c.ContactInfo.Phone || input == c.ContactInfo.Email)
                     {
@@ -160,6 +161,7 @@ namespace SupremEPRSystemForRealBussiness.src.Menus
                     case ConsoleKey.F1:
                         Data.Database.Instance.salesOrders.Add(salesOrder);
                         Customer customer = Data.Database.Instance.GetCustomerById(salesOrder.Customer.ID);
+                        Database.Instance.UpdateLastOrderDate(customer.ID, salesOrder.TimeStamp);
                         customer.LastOrderDate = salesOrder.TimeStamp;
                         salesOrder.price = totalprice;
                         salesOrder.OrderStatus = "Payment Pending";
